@@ -13,11 +13,21 @@ import { AppComponent } from './app.component';
 import { TestComponent } from './test/test.component';
 import { InitComponent } from './init/init.component';
 
+import { AuthService } from "./shared/services/auth.service";
+import { AuthGuard } from "./shared/guard/auth.guard";
+import { SecureInnerPagesGuard } from "./shared/guard/secure-inner-pages.guard";
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { SignInComponent } from './sign-in/sign-in.component';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
     TestComponent,
-    InitComponent
+    InitComponent,
+    UserProfileComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +36,7 @@ import { InitComponent } from './init/init.component';
     AppRoutingModule,
     AngularFireDatabaseModule
   ],
-  providers: [],
+  providers: [AuthService, AuthGuard, SecureInnerPagesGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
