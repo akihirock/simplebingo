@@ -1,0 +1,25 @@
+<!-- <md-toolbar color="primary" class="initToolBar">
+  <a id="mainTitle" href="/{{la}}" ><span>simple bingo</span></a>
+  <span class="example-fill-remaining-space"></span>
+  <ul [hidden]="!navList">
+    <li><a (click)="openLanguageDialog()"><i class="material-icons">&#xE894;</i><span>{{ 'language' | translate }}</span></a></li>
+  </ul>
+  <button (click)="navList = !navList" type="button">
+    <span class="sr-only"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+</md-toolbar> -->
+
+
+<mat-toolbar>
+ <mat-toolbar-row>
+    <span>Application Title</span>
+    <span class="example-fill-remaining-space"></span>
+    <ul>
+      <li><a><span>language</span></a></li>
+    </ul>
+    <mat-icon class="example-icon">menu</mat-icon>
+ </mat-toolbar-row>
+</mat-toolbar>

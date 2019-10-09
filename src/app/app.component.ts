@@ -4,14 +4,15 @@ import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
-  template: `
-  <h1>{{ (item | async)?.name }}</h1>
-  <router-outlet></router-outlet>
-  `,
+  templateUrl: 'app.component.html',
 })
 export class AppComponent {
   item: Observable<any>;
+  items:Observable<any[]>;
+
   constructor(db: AngularFireDatabase) {
-    this.item = db.object('item').valueChanges();
+    this.item  = db.object('item').valueChanges();
+    this.items = db.list('items').valueChanges();
+
   }
 }

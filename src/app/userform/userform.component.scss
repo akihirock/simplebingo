@@ -1,0 +1,247 @@
+$backcolor:#fff;
+$radio-default : #3F51B5;
+$lightbg-text : $radio-default;
+
+*:not(.material-icons){
+  font-family: 'Roboto', sans-serif;
+}
+
+#invite{
+  padding: 0px 8px 4px 8px;
+  background: #ffcfcf;
+  h2{
+    font-size: 22px;
+    padding: 12px 0;
+    border-bottom: 1px solid #aaa;
+  }
+  dl{
+    display:table;
+    margin-top: 6px;
+    &:after{
+      display: block;
+      clear: both;
+      content: " ";
+    }
+  }
+  dt{
+    display:table-cell;
+    vertical-align: middle;
+    padding-right: 8px;
+    img{
+      width: 32px;
+      height: 32px;
+    }
+  }
+  dd{
+    display:table-cell;
+    vertical-align: middle;
+  }
+}
+
+h3{
+  font-size: 22px;
+  margin: 0;
+  padding: 14px;
+  background: #70c26f;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  left: 0;
+  right: 0;
+  top: 0;
+  a{
+    display: block;
+    position: absolute;
+    left: 6px;
+    font-size: 16px;
+    text-decoration: none;
+    color: #fff;
+    padding-top: 4px;
+    top: 7px;
+  }
+  md-icon{
+    font-size: 22px;
+    vertical-align: sub;
+    font-family: 'Material Icons';
+  }
+}
+
+
+form{
+  background: $backcolor;
+  color: #555;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  font-size: 113%;
+  .form-group{
+    margin: 30px 0;
+    &:first-child{
+      margin-top: 15px;
+    }
+    &.radio{
+      width: 100%;
+      padding-bottom: 6px;
+      margin-bottom: 40px;
+      border-bottom : 1px solid rgba(0, 0, 0, 0.38);
+    }
+  }
+}
+
+label{
+  display: block;
+  margin-bottom: 4px;
+  color: rgba(0, 0, 0, 0.38);
+      font-size: 16px !important;
+}
+
+
+md-input{
+  width: 100%;
+}
+
+
+#area_icon {
+    height: 200px;
+    text-align: center;
+    padding: 0;
+    background: #ffeb3b;
+    margin: -10px -20px 0 -20px;
+    img{
+      width: 128px;
+      height: 128px;
+      margin-top: 30px;
+    }
+}
+
+#area_iconList{
+    position: fixed;
+    top: 0;
+    z-index: 20;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: auto;
+    margin: 0;
+    padding: 8px;
+    animation-duration: 1s;
+    animation-name: fade-in;
+    -moz-animation-duration: 1s;
+    -moz-animation-name: fade-in;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-name: fade-in;
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    -o-flex-wrap: wrap;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    background: #ffeb3b;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -ms-box-pack: center;
+    -o-box-pack: center;
+    box-pack: center;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    -webkit-justify-content: space-around;
+    -moz-justify-content: space-around;
+    -ms-justify-content: space-around;
+    -o-justify-content: space-around;
+    justify-content: space-around;
+    img,svg{
+      width: 84px;
+      height: 84px;
+      border: 6px solid #ffeb3b;
+      //border-radius: 100%;
+      &.active{
+        border : 6px solid red;
+        background: red;
+      }
+    }
+}
+
+.text-danger{
+  font-size: 12px;
+  margin-top: -12px;
+  display: block;
+}
+
+.btn-ctls{
+  text-align: center;
+  background: #fff;
+  padding: 10px 0 20px 0;
+}
+
+
+#userForm{
+  height: 100%;
+  position: absolute;
+  background: #eee;
+  left: 0;
+  right: 0;
+}
+
+@media (min-width: 768px){
+  #userForm{
+    position:relative;
+    height: auto;
+    width: 45%;
+    margin: 80px 12px 0 55%;
+    padding: 0 12px 0 0;
+    &:after{
+      clear: both;
+    }
+  }
+  form{
+    .form-group{
+      margin: 15px 0;
+    }
+  }
+  #area_iconList{
+    position: absolute;
+    width: 100%;
+    height: 430px;
+    z-index: 100;
+    margin: 20px auto;
+    top:50px;
+    svg{
+      width: 72px;
+      height: 72px;
+    }
+  }
+}
+
+@media (min-width: 1024px){
+  #userForm{
+    width: 420px;
+    margin-left: 55%;
+    margin-top: 80px;
+    margin-bottom: 20px;
+    padding: 0;
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+    &:after{
+      clear: both;
+    }
+  }
+  form{
+    .form-group{
+      margin: 15px 0;
+    }
+  }
+  #area_iconList{
+    position: absolute;
+    // width: 1000px;
+    height: 200px;
+    z-index: 100;
+    margin: 20px auto;
+    top:50px;
+  }
+}

@@ -1,0 +1,48 @@
+<div id="userForm">
+
+    <!-- <div id="invite" *ngIf="game.fl">
+      <h2>{{game.tt}}</h2>
+      <dl>
+        <dt><img src="./svg/{{icons[game.ic]}}.svg"></dt>
+        <dd>{{game.nm}}</dd>
+      </dl>
+    </div>
+  -->
+
+    <h3>User Setting</h3>
+
+    <form name="settingGame" [formGroup]="u">
+
+        <div id="area_icon">
+            <img id="yourIcon" src="{{yourIcon}}">
+            <div (click)="showIconList=!showIconList;">chage icon</div>
+        </div>
+
+        <div *ngIf="showIconList" id="area_iconList">
+            <svg class="icon" (click)="iconNum=j;showIconList=false;yourIcon='/assets/svg/' +this.icons[this.iconNum]+'.svg'" *ngFor="let i of icons;let j = index;"[class.active]="j==iconNum" >
+              <use attr.xlink:href="{{'/assets/svg/animals.svg#'+i}}"/>
+            </svg>
+        </div>
+
+        <div class="form-group">
+
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Your Name" formControlName="name">
+            <mat-error *ngIf="u.controls['name'].hasError('required')">
+              Your Name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+        </div>
+
+    </form>
+
+    <div *ngIf="!invite" class="btn-ctls">
+        <button mat-raised-button color="primary" [disabled]="u.controls['name'].hasError('required')" (click)="bingoStart()">Bingo Open</button>
+    </div>
+
+    <div *ngIf="invite" class="btn-ctls">
+        <button mat-raised-button color="primary" [disabled]="u.controls['name'].hasError('required')" (click)="joinBingo()">Join Game</button>
+    </div>
+
+</div>

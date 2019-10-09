@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 // Required components for which route services to be activated
+
 import { SignInComponent } from './sign-in/sign-in.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 
@@ -20,6 +21,8 @@ const routes: Routes = [
   { path: '', redirectTo: '/sign-in', pathMatch: 'full'},
   { path: 'sign-in', component: SignInComponent, canActivate: [SecureInnerPagesGuard]},
   { path: 'user-profile', component: UserProfileComponent, canActivate: [AuthGuard] },
+  { path: 'init', component: InitComponent },
+  { path: 'test', component: TestComponent }
 ];
 
 

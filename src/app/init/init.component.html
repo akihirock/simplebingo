@@ -1,1 +1,64 @@
-aaa
+<toolbar></toolbar>
+
+<div (click)="check()">aaaaa</div>
+
+
+<!-- <section id="secIntro">
+  <div class="row">
+    <div class="col-sm-7">
+      <div class="txtWelcome">
+        <h2>Let's play　<span>free online bingo.</span></h2>
+        <img src="assets/img/demo.png">
+      </div>
+    </div>
+    <div class="col-sm-5">
+
+      <gameform *ngIf="gameUserFlg"  (onToUserForm)="onToUserForm($event)"></gameform>
+      <userform *ngIf="!gameUserFlg" (onToGameForm)="onToGameForm($event)"></userform>
+
+    </div>
+  </div>
+</section> -->
+
+<!-- <load *ngIf="pcFlg"></load> -->
+
+<section id="point">
+    <div class="row">
+        <article class="col-sm-4">
+          <h3>Web Application</h3>
+          <p>
+            To make a game with simple bingo , let's invite a friend.
+            Number bingo card is dealt to the invited friend will be delivered.
+            There is no bother need to prepare the bingo machine and card.
+            Enjoy the bingo while chatting with friends.
+          </p>
+        </article>
+        <article class="col-sm-4">
+          <h3>All Free</h3>
+          <p>
+            Simple Bingo is a WEB application (WEB site ).<br>
+            you can play by  web browser of all of the device , such as smartphone(iPhone,android) , pc(mac,windows) , tablet(iPhone,android tablet).
+          </p>
+        </article>
+        <article class="col-sm-4">
+          <h3>Bingo Machine</h3>
+          <p>
+            Simple Bingo are all free to make the game , to invite friends , to chat with friends.<br>
+            Enjoy the game with confidence in various scenes, such as a year-end party, a New Year's party, a birthday party, a welcome party and a pick-up meeting.
+          </p>
+        </article>
+    </div>
+
+<!-- <googlead></googlead> -->
+
+    <div class="row" style="text-align:center;">
+        © 2016 simplebingo.
+    </div>
+
+</section>
+
+
+<div id="initNewLoad">
+  <a md-button color="primary" routerLink="/gameform" routerLinkActive="active">NEW GAME</a>
+  <a md-button color="primary" routerLink="/load" routerLinkActive="active">LOAD</a>
+</div>

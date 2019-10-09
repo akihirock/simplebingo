@@ -1,0 +1,129 @@
+#secIntro{
+  h2{
+    font-size: 50px;
+    margin: 10px 0 20px 0;
+    padding:20px 0;
+    line-height: 1.2;
+    span{
+      display: block;
+    }
+  }
+  .col-sm-7{
+    padding:40px 12px 20px 12px;
+    img {
+      width: 100%;
+      display: block;
+      margin: 20px 0;
+    }
+  }
+}
+
+#point{
+  padding: 20px 12px 40px 12px;
+  margin-bottom: 60px;
+  clear: both;
+  background: #fff;
+  h3 {
+    font-size: 22px;
+    text-align: center;
+    padding: 10px 12px 6px;
+    margin-bottom: 16px;
+    border-width: 0 0 2px;
+    border-style: solid;
+    border-color: green;
+  }
+  .col-sm-4 {
+    padding: 10px 12px 20px;
+    &:first-child h3 {
+      border-color: red;
+    }
+    &:last-child h3 {
+      border-color: #00f;
+    }
+  }
+  p{
+    margin: 0 0 10px;
+    line-height: 1.4;
+  }
+  googlead{
+    text-align: center;
+    display: block;
+    margin-bottom: 40px;
+  }
+}
+
+#initNewLoad{
+  border-top: 2px solid #eee;
+  background: #fff;
+  position: fixed;
+  width: 100%;
+  padding: 12px 0;
+  bottom: 0;
+  z-index: 4;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-box-pack: justify;
+  -o-box-pack: justify;
+  box-pack: justify;
+  -moz-justify-content: space-around;
+  -ms-justify-content: space-around;
+  -o-justify-content: space-around;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  button{
+    min-width: 120px !important;
+  }
+}
+
+gameform,
+load{
+  display: none;
+}
+
+@media (min-width: 600px){
+  gameform,
+  load{
+    display: block;
+  }
+  #initNewLoad{
+    display: none;
+  }
+  #secIntro{
+    .col-sm-7{
+      width: 55%;
+      float: left;
+      padding: 0 20px;
+      h2 {
+        font-size: 44px;
+        margin-top: 0;
+        padding-top: 0;
+      }
+      img {
+        width: 100%;
+        display: block;
+        margin: 20px 0;
+        padding: 0 20px 0 0px;
+      }
+    }
+  }
+  #point{
+    margin-bottom:0;
+    padding: 60px 12px 40px;
+    .col-sm-4 {
+      width: 33.33333333%;
+      float:left;
+    }
+    >.row{
+      &:after{
+        content: " ";
+        display: block;
+        clear: both;
+      }
+    }
+  }
+}
