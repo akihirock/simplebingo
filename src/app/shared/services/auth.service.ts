@@ -34,6 +34,11 @@ export class AuthService {
       return (user !== null) ? true : false;
     }
 
+    get getUserID(){
+      const user = JSON.parse(localStorage.getItem('user'));
+      return user;
+    }
+
     // Sign in with Google
     GoogleAuth() {
       //return this.AuthLogin(new auth.GoogleAuthProvider());

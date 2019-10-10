@@ -28,6 +28,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 import { UserformComponent } from './userform/userform.component';
+import { GameformComponent } from './gameform/gameform.component';
 
 import {
   MatAutocompleteModule,
@@ -72,6 +73,7 @@ import {
     SignInComponent,
     ToolbarComponent,
     UserformComponent,
+    GameformComponent
   ],
   imports: [
     BrowserModule,

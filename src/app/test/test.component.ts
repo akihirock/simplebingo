@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from "../shared/services/auth.service";
 
 @Component({
   selector: 'app-test',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TestComponent implements OnInit {
 
-  constructor() { }
+  userData: any;
+
+  constructor(
+    public authService: AuthService
+  ) {
+    console.log(this.authService.getUserID.uid);
+  }
 
   ngOnInit() {
+
   }
 
 }

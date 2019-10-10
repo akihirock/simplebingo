@@ -16,13 +16,20 @@ import { AppComponent } from './app.component';
 import { TestComponent } from './test/test.component';
 import { InitComponent } from './init/init.component';
 
+import { GameformComponent } from './gameform/gameform.component';
+import { UserformComponent } from './userform/userform.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/sign-in', pathMatch: 'full'},
   { path: 'sign-in', component: SignInComponent, canActivate: [SecureInnerPagesGuard]},
   { path: 'user-profile', component: UserProfileComponent, canActivate: [AuthGuard] },
   { path: 'init', component: InitComponent },
-  { path: 'test', component: TestComponent }
+  { path: 'test', component: TestComponent , canActivate: [AuthGuard]},
+  { path: 'userform',component: UserformComponent},
+  { path: 'gameform',component: GameformComponent},
+
+
 ];
 
 
