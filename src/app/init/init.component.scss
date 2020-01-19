@@ -1,6 +1,6 @@
 #secIntro{
   h2{
-    font-size: 50px;
+    font-size: 40px;
     margin: 10px 0 20px 0;
     padding:20px 0;
     line-height: 1.2;
@@ -53,7 +53,7 @@
 }
 
 #initNewLoad{
-  border-top: 2px solid #eee;
+  border-top: 2px solid #3F51B5;
   background: #fff;
   position: fixed;
   width: 100%;
@@ -77,6 +77,9 @@
   justify-content: space-around;
   button{
     min-width: 120px !important;
+  }
+  a{
+    font-size: 16px;
   }
 }
 

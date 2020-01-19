@@ -1,0 +1,44 @@
+h3{
+  font-size: 16px;
+  margin-bottom: 1em;
+}
+
+.btns{
+  width: 100%;
+  padding: 20px 0 0 0;
+  z-index: 4;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-box-pack: justify;
+  -o-box-pack: justify;
+  box-pack: justify;
+  -moz-justify-content: space-around;
+  -ms-justify-content: space-around;
+  -o-justify-content: space-around;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+}
+
+p{
+  line-height: 1.3;
+}
+
+mat-radio-group{
+  -height: 200px;
+  display: block;
+  overflow-y: scroll;
+  mat-radio-button{
+    display: block;
+    padding: 10px 10px;
+    -border-bottom: 1px solid #eee;
+    &:first-child{
+      margin-top: 10px;
+      -border-top: 1px solid #eee;
+    }
+  }
+}

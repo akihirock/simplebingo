@@ -7,7 +7,11 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "serve:ja": "npx ng serve --configuration=ja",
+    "serve:en": "npx ng serve --configuration=en",
+    "build:ja": "npx ng build --configuration=production --i18nFormat xtb --i18n-file src/locale/test_Japanese.xtb --i18n-locale ja --output-path ./dist/ja --base-href /ja/",
+    "build:en": "npx ng build --configuration=production --i18nFormat xtb --i18n-file src/locale/test_English.xtb --i18n-locale en --output-path ./dist/ --base-href /"
   },
   "private": true,
   "dependencies": {

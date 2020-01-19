@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,Input,Output,EventEmitter } from '@angular/core';
 import { AuthService } from "../shared/services/auth.service";
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Observable } from 'rxjs';
@@ -20,6 +20,7 @@ export class UserformComponent{
   game;
   gamesRef: any;
   userRef: any;
+  gameUser: any;
   msgsRef: any;
 
   yourIcon = "../../assets/svg/cat.svg";
@@ -40,17 +41,37 @@ export class UserformComponent{
 
   toGame: boolean = false;
 
+  la:string = "";
+
+  @Input('pcFlg') pcFlg: boolean ;
+  @Output() onToGameForm = new EventEmitter<boolean>();
+
+
   constructor(
     public authService: AuthService,
     private fb: FormBuilder,
     private router: Router,
     private gameService : GameService,
-    private db: AngularFireDatabase
+    public db: AngularFireDatabase
   ) {
     this.gamesRef = db.list('games');
     this.uid = this.authService.getUserID.uid;
     this.game = gameService.getGame();
     this.iconNum = Math.floor(Math.random() * (this.icons.length) ) ;
+
+    if(this.game.id != undefined){
+      this.invite = true;
+      //this.userRef = af.database.object('games/' + this.game.id + '/us/' + this.uid);
+      this.gameUser = this.db.object('games/' + this.game.id + '/us/' + this.uid);
+
+      console.log("users/" +  this.uid + "/" + this.game.id);
+
+      this.userRef = this.db.object("users/" +  this.uid + "/" + this.game.id);
+
+
+    }
+
+
   }
 
   ngOnInit() {
@@ -175,27 +196,31 @@ export class UserformComponent{
   }
 
   joinBingo(){
-    // this.toGame = true;
-    // var you = {
-    //   nm : this.name,
-    //   ic : this.iconNum,
-    //   nu : this.makeYourNum(this.game.cs,this.game.mn)
-    // };
-    // var obj = {
-    //   nu:you.nu,
-    //   st:0
-    // }
-    // var gKey = this.game.id;
-    // var uid = this.uid;
-    // var af = this.af;
-    // var router =  this.router;
-    //
-    // this.gameUser.set(obj).then(function(g){
-    //   var user = af.database.object("users/" + uid + "/" + gKey);
-    //   user.set(you).then(function(u){
-    //     router.navigate(['/game',gKey]);
-    //   });
-    // });
+
+    console.log("joinBingo");
+
+    this.toGame = true;
+    var you = {
+      nm : this.u.controls['name'].value,
+      ic : this.iconNum,
+      nu : this.makeYourNum(this.game.cs,this.game.mn)
+    };
+    var obj = {
+      nu:you.nu,
+      st:0
+    }
+    var gKey = this.game.id;
+    var userRef = this.userRef;
+    var router =  this.router;
+
+    this.gameUser.set(obj).then(function(g){
+      userRef.set(you).then(function(u){
+        router.navigate(['/game',gKey]);
+      });
+    });
+
+
+
   }
 
 }

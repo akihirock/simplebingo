@@ -14,6 +14,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TestComponent } from './test/test.component';
 import { InitComponent } from './init/init.component';
+import { LoadComponent } from './load/load.component';
+
 
 import { GameService } from "./shared/services/gamemodel.service";
 
@@ -29,6 +31,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { UserformComponent } from './userform/userform.component';
 import { GameformComponent } from './gameform/gameform.component';
+import { GameComponent, DelMsgDialog, DelnumDialog, SignoutDialog, DeleteDialog, LanguageDialog } from './game/game.component';
+import { MessageComponent } from './message/message.component';
+import { BallComponent } from './ball/ball.component';
+import { BingocardComponent } from './bingocard/bingocard.component';
+import { BackComponent } from './back/back.component';
+
+
+import { WindowRef } from './shared/services/WindowRef';
+
+import { BingoTypePipe} from './shared/services/bingo.pipe';
+
+
 
 import {
   MatAutocompleteModule,
@@ -69,11 +83,23 @@ import {
     AppComponent,
     TestComponent,
     InitComponent,
+    LoadComponent,
     UserProfileComponent,
     SignInComponent,
     ToolbarComponent,
     UserformComponent,
-    GameformComponent
+    GameformComponent,
+    GameComponent,
+    MessageComponent,
+    BallComponent,
+    BingocardComponent,
+    BackComponent,
+    BingoTypePipe,
+    DelMsgDialog,
+    DelnumDialog,
+    SignoutDialog,
+    DeleteDialog,
+    LanguageDialog,
   ],
   imports: [
     BrowserModule,
@@ -152,11 +178,19 @@ import {
     MatToolbarModule,
     MatTooltipModule,
   ],
+  entryComponents: [
+    DelMsgDialog,
+    DelnumDialog,
+    SignoutDialog,
+    DeleteDialog,
+    LanguageDialog
+  ],
   providers: [
     AuthService,
     AuthGuard,
     SecureInnerPagesGuard,
-    GameService
+    GameService,
+    WindowRef,
   ],
   bootstrap: [AppComponent]
 })

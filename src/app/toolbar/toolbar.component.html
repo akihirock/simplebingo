@@ -15,11 +15,11 @@
 
 <mat-toolbar>
  <mat-toolbar-row>
-    <span>Application Title</span>
+    <span>simple bingo</span>
     <span class="example-fill-remaining-space"></span>
-    <ul>
-      <li><a><span>language</span></a></li>
+    <ul [hidden]="!navList">
+      <li><a (click)="openLanguageDialog()"><i class="material-icons">&#xE894;</i>language</a></li>
     </ul>
-    <mat-icon class="example-icon">menu</mat-icon>
+    <mat-icon (click)="navList = !navList" class="example-icon">menu</mat-icon>
  </mat-toolbar-row>
 </mat-toolbar>

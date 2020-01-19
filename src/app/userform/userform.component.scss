@@ -6,6 +6,10 @@ $lightbg-text : $radio-default;
   font-family: 'Roboto', sans-serif;
 }
 
+mat-form-field {
+  width: 100%;
+}
+
 #invite{
   padding: 0px 8px 4px 8px;
   background: #ffcfcf;

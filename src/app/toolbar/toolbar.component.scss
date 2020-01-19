@@ -22,6 +22,8 @@ mat-toolbar {
       padding: 10px;
       border-bottom: 1px solid #89BEFF;
       position: relative;
+      font-size: 18px;
+      font-weight: normal;
       a{
         width: 100%;
         display: inline-block;
@@ -54,48 +56,22 @@ mat-toolbar {
       }
     }
   }
-  button{
-    position: relative;
-    float: right;
-    padding: 9px 10px;
-    margin-right: 15px;
-    margin-bottom: 8px;
-    background-color: transparent;
-    background-image: none;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    right: 0;
-    top: 6px;
+
+  mat-icon{
     position: absolute;
-    .sr-only {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0,0,0,0);
-        border: 0;
-    }
-    span{
-      background-color: #fff;
-      display: block;
-      width: 22px;
-      height: 2px;
-      border-radius: 1px;
-    }
-    .icon-bar+.icon-bar {
-        margin-top: 4px;
-    }
+    right: 16px;
   }
+
+
+
 }
 
 @media (min-width: 960px){
-mat-toolbar-row {
-    width: 960px;
-    margin: 0 auto;
-    padding: 0;
-}
+  mat-toolbar-row {
+      width: 960px;
+      margin: 0 auto;
+      padding: 0;
+  }
 }
 
 @media (min-width: 600px) {
@@ -120,6 +96,9 @@ mat-toolbar-row {
       }
     }
     button{
+      display: none;
+    }
+    mat-icon{
       display: none;
     }
   }

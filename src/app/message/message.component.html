@@ -1,0 +1,56 @@
+<section #msgSection>
+
+  <div *ngIf="tab == 'message'">
+      <div class="card" *ngFor="let n of msgsM">
+          <dl class="bcard">
+              <dt>
+                  <span *ngIf="ownerId == n.ur" class="iconHost">{{ 'host'  }}</span>
+                  <img src="/assets/svg/{{icons[n.ic]}}.svg">
+                  <span *ngIf="playersM[n.ur].st>0 && playersM[n.ur].st<100" class="iconStatus">REACH</span>
+                  <span *ngIf="playersM[n.ur].st>0 && playersM[n.ur].st>=100" class="iconStatus">Bingo by {{ playersM[n.ur].st-100}} turns</span>
+              </dt>
+              <dd>{{n.nm}}</dd>
+              <mat-checkbox class="msgsDel" *ngIf=" (msgDelFlg && uid == ownerId) || (msgDelFlg && uid == n.ur)" attr.data-key="{{n.$key}}" attr.data-user="{{n.ur}}"></mat-checkbox>
+              <div class="msgtime">
+                  <div class="msg">{{n.tx}}</div>
+                  <div class="time">{{n.tm | date:"yyyy/MM/dd HH:mm"}}</div>
+              </div>
+          </dl>
+      </div>
+  </div>
+
+  <div *ngIf="tab == 'player'">
+    <div class="card" *ngFor="let key of keys();">
+        <dl class="bcard" (click)="isVisible[key] = !isVisible[key]" >
+            <dt>
+                <span *ngIf="ownerId == key" class="iconHost">{{ 'host'  }}</span>
+                <img src="/assets/svg/{{icons[playersM[key].ic]}}.svg">
+                <span *ngIf="playersM[key].st>0 && playersM[key].st<100" class="iconStatus">REACH</span>
+                <span *ngIf="playersM[key].st>0 && playersM[key].st>=100" class="iconStatus">Bingo by {{ playersM[key].st-100}} turns</span>
+            </dt>
+            <dd>{{playersM[key].nm}}</dd>
+            <mat-checkbox class="playersDel" *ngIf="playerDelFlg && ownerId != key" attr.data-user="{{key}}"></mat-checkbox>
+            <div *ngFor="let m of msgsM">
+                <div *ngIf="isVisible[key] || playerDelFlg">
+                    <div *ngIf="key == m.ur" class="msgtime">
+                        <div class="msg">{{m.tx}}</div>
+                        <div class="time">{{m.tm | date:"yyyy/MM/dd HH:mm"}}</div>
+                    </div>
+                </div>
+            </div>
+        </dl>
+    </div>
+
+    <div class="card ban" *ngFor="let n of banM">
+        <dl class="bcard">
+            <dt>
+                <span class="iconHost">{{ 'SignOut'  }}</span>
+                <img src="/assets/svg/{{icons[n.ic]}}.svg">
+            </dt>
+            <dd>{{n.nm}}</dd>
+        </dl>
+    </div>
+
+  </div>
+
+</section>

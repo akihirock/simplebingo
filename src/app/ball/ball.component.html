@@ -1,0 +1,10 @@
+<section [class.navopen]="navopen" id="ball">
+  <div *ngIf="!isOver">
+    <span id="bingoNum"><span [class.zero]="rnd==0">{{rnd | bingo_type:5}}</span></span>
+    <button *ngIf="onStartFlg!='stop'" (click)="invite()" id="onInviteArea" mat-fab>
+      <mat-icon aria-label="Example icon-button with a heart icon">person_add</mat-icon>
+    </button>
+    <button (click)="start()" id="onStartArea" mat-fab>{{onStartFlg}}</button>
+    <button *ngIf="onStartFlg=='stop'" (click)="cancel()" id="onCancelArea" mat-fab>cancel</button>
+  </div>
+</section>

@@ -1,4 +1,7 @@
 import { Component} from '@angular/core';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { LanguageDialog } from '../game/game.component';
+
 // import { ActivatedRoute,Router } from '@angular/router';
 // import { MdDialog, MdDialogConfig, MdDialogRef} from '@angular/material';
 // import { TranslateService } from './translate';
@@ -16,7 +19,7 @@ export class ToolbarComponent{
   _router;
   la:string;
   constructor(
-    // public dialog: MdDialog,
+    public dialog: MatDialog
     // private router: Router,
     // private languageService : LanguageService,
     // private _translate: TranslateService,
@@ -32,34 +35,30 @@ export class ToolbarComponent{
     // }else{
     //   this.la = la;
     // }
-
   }
 
-  // navList: boolean = false;
+  navList: boolean = false;
   //
   // game;
-  // languagedialogRef: MdDialogRef<LanguageDialog>;
-  // openLanguageDialog() {
-  //   this.navList=false;
-  //   this.languagedialogRef = this.dialog.open(LanguageDialog, {
-  //     disableClose: false
-  //   });
-  //   this.languagedialogRef.afterClosed().subscribe(result => {
-  //     if(result){
-  //       this._translate.use(result);
-  //       this.languageService.setLa(result);
-  //       this.game = this._gameService.getGame();
-  //
-  //       if(result == "en"){
-  //         this._router.navigate(['/']);
-  //       }else{
-  //         this._router.navigate(['/',result]);
-  //       }
-  //
-  //     }
-  //     this.languagedialogRef = null;
-  //   });
-  // }
+
+
+  languagedialogRef: MatDialogRef<LanguageDialog>;
+  openLanguageDialog() {
+    //this.navList=false;
+    this.languagedialogRef = this.dialog.open(LanguageDialog, {
+      disableClose: false
+    });
+    this.languagedialogRef.afterClosed().subscribe(result => {
+      if(result){
+        // this._translate.use(result);
+        // this.languageService.setLa(result);
+        console.log(result);
+        //alert();
+      }
+      this.languagedialogRef = null;
+    });
+  }
+
 
 
 }

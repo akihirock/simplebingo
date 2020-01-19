@@ -62,17 +62,38 @@
                   "maximumError": "10kb"
                 }
               ]
+            },
+            "ja": {
+              "i18nFile": "src/locale/test_Japanese.xtb",
+              "i18nFormat": "xtb",
+              "i18nLocale": "ja",
+              "outputPath": "dist/ja/",
+              "baseHref": "/ja/"
+            },
+            "en": {
+              "i18nFile": "src/locale/test_English.xtb",
+              "i18nFormat": "xtb",
+              "i18nLocale": "en",
+              "outputPath": "dist/",
+              "baseHref": "/"
             }
           }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "simplebingo:build"
+            "browserTarget": "simplebingo:build",
+            "aot": true
           },
           "configurations": {
             "production": {
               "browserTarget": "simplebingo:build:production"
+            },
+            "ja": {
+              "browserTarget": "simplebingo:build:ja"
+            },
+            "en": {
+              "browserTarget": "simplebingo:build:en"
             }
           }
         },

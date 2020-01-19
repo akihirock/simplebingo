@@ -1,0 +1,160 @@
+::selection {
+    background: #000 !important;
+    color: #fff;
+}
+
+//Firefox
+::-moz-selection {
+    background: #000 !important;
+    color: #fff;
+}
+
+
+@media (max-width: 640px){
+
+  #ball{
+    margin-top:20px;
+  }
+
+  #bingoNum {
+      color: #444;
+      margin: 0 auto;
+      background-color: #EFEF11;
+      border-radius: 100%;
+      text-align: center;
+      display: block;
+      width: calc(100vmin - 20px);
+      height:calc(100vmin - 20px);
+      line-height: calc(100vmin - 10px);
+      span{
+        font-size: 50vmin;
+        &.zero{
+        font-size: 25vmin;
+        }
+      }
+  }
+
+  #onInviteArea,
+  #onCancelArea,
+  #onStartArea{
+    width:30vmin;
+    height:30vmin;
+    font-size:6vw;
+    color: #333;
+    position: fixed;
+    bottom:60px;
+    font-weight: normal;
+    margin-bottom: 10px;
+  }
+
+  #onStartArea{
+    left: 3%;
+    background-color: #0ff;
+  }
+
+  #onInviteArea,
+  #onCancelArea {
+    right: 3%;
+    background-color: tomato;
+  }
+
+  #onInviteArea{
+    background-color: #0ff;
+    width: 56px;
+    height: 56px;
+  }
+
+  :selection {
+    background: none;
+    color: #000;
+    text-shadow: none;
+  }
+  ::-moz-selection {
+      background: #000;
+      color: #fff;
+  }
+}
+
+
+
+@media (min-width: 640px) {
+
+  #ball{
+    margin:15px 0 10px 0;
+  }
+
+  #bingoNum {
+      color: #444;
+      margin: 0 auto;
+      background-color: #EFEF11;
+      border-radius: 100%;
+      text-align: center;
+      display: block;
+      width:calc(100vmin - 135px);
+      height:calc(100vmin - 135px);
+      line-height: 80vmin;
+      span{
+        font-size: 50vmin;
+        &.zero{
+        font-size: 25vmin;
+        }
+      }
+  }
+
+  #onInviteArea,
+  #onCancelArea,
+  #onStartArea{
+    color: #333;
+    font-weight: normal;
+    position: fixed;
+    bottom: 10px;
+    width:25vmin;
+    height:25vmin;
+    font-size:6vmin;
+  }
+
+  #onStartArea{
+    margin-left: 3%;
+    float: left;
+    background-color: #0ff;
+  }
+
+  #onInviteArea,
+  #onCancelArea {
+     margin-right: 3%;
+     right: 0;
+     background-color: tomato;
+  }
+
+  #onInviteArea{
+    background-color: #0ff;
+    width: 56px;
+    height: 56px;
+    md-icon{
+      width: auto;
+      height: auto;
+    }
+  }
+
+}
+
+
+@media (min-width: 640px) and (max-width: 960px){
+
+  #ball{
+    &.navopen{
+      #bingoNum {
+        width: calc(100vmin - 320px);
+        height: calc(100vmin - 320px);
+        line-height: calc(100vmin - 320px);
+        span{
+          font-size:calc(100vmin / 3 );
+          &.zero{
+            font-size:calc(18vmin);
+          }
+        }
+      }
+    }
+  }
+
+}

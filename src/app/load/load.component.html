@@ -1,0 +1,37 @@
+<section id="load">
+
+  <div class="row">
+
+    <div id="gameIDinvite" *ngIf="loaded">
+      <h3><a routerLink="/"><mat-icon>arrow_back</mat-icon></a>Load Game</h3>
+    </div>
+
+    <div *ngIf="!loaded" id="loading">
+      <i class="material-icons">&#xE863;</i>
+      <p>Loading...</p>
+    </div>
+
+    <div id="cards">
+      <mat-card class="example-card" *ngFor="let key of keys();">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image">
+            <img src="../../assets/svg/{{icons[games[key].ic]}}.svg">
+          </div>
+          <mat-card-title>{{games[key].tt}}</mat-card-title>
+          <mat-card-subtitle>{{games[key].nm}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{games[key].tx}}</p>
+          <p>{{games[key].tm | date:"yyyy/MM/dd HH:mm"}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <!-- <button routerLink="/game/{{games[key].$key}}" mat-button color="primary">{{ 'Load'}}</button> -->
+          <button [routerLink]="['/game', key]" mat-button color="primary">{{ 'Load'}}</button>
+
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
+  </div>
+
+</section>

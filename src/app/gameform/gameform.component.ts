@@ -1,4 +1,4 @@
-import { Component, OnInit,Output,EventEmitter} from '@angular/core';
+import { Component,OnInit,Input,Injector,Output,EventEmitter} from '@angular/core';
 import { AuthService } from "../shared/services/auth.service";
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Observable } from 'rxjs';
@@ -21,7 +21,7 @@ export class GameformComponent implements OnInit{
   min = 24;
   numbers = [];
   status = true;
-
+  @Input('pcFlg') pcFlg: boolean ;
   @Output() onToUserForm = new EventEmitter<boolean>();
 
   constructor(
@@ -40,7 +40,7 @@ export class GameformComponent implements OnInit{
       'numberSlider':['78'],
       'message':[''],
     });
-    for(var i= this.min; i < this.max;i++ ){
+    for(var i= this.min; i <= this.max;i++ ){
       this.numbers.push({value:i+""});
     }
   }
@@ -75,8 +75,13 @@ export class GameformComponent implements OnInit{
     this.game.cs = this.f.controls['cardSize'].value;
     this.game.tx = this.f.controls['message'].value;
     this.game.sd = false;
-    this.onToUserForm.emit(true);
-    this.router.navigate(['/userform']);
+
+    if(this.pcFlg){
+      this.onToUserForm.emit(true);
+    }else{
+      this.router.navigate(['/userform']);
+    }
+
   }
 
 }

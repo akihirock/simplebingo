@@ -1,0 +1,156 @@
+h3{
+  font-size: 22px;
+  margin: 0;
+  padding: 12px;
+  background: #70c26f;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  left: 0;
+  right: 0;
+  top: 0;
+  a{
+    display: block;
+    position: absolute;
+    left: 6px;
+    font-size: 16px;
+    text-decoration: none;
+    color: #fff;
+    padding-top: 4px;
+    top: 7px;
+  }
+  mat-icon{
+    font-size: 22px;
+    vertical-align: sub;
+    font-family: 'Material Icons';
+  }
+}
+
+
+
+mat-card{
+  border-radius: 3px;
+  box-shadow: rgba(0,0,0,.117647) 0 0 2px 0,rgba(0,0,0,.258824) 0 2px 2px 0;
+  background: #fff;
+  margin: 10px 10px 20px 10px;
+  padding: 24px 16px 6px;
+  .mat-card-actions, .mat-card-content, .mat-card-subtitle, .mat-card-title {
+    margin-bottom: 10px;
+  }
+  .mat-card-content{
+    margin-top: 10px;
+  }
+  .mat-card-header{
+    height: auto;
+    img{
+      width: 40px;
+    }
+  }
+  mat-card-title{
+    font-size: 18px;
+    line-height: 1.2;
+    margin-top: 2px;
+    margin-bottom: 10px;
+  }
+  mat-card-content{
+    padding: 0 4px;
+    p{
+      font-size: 14px;
+      &:last-child{
+        font-size: 14px;
+        color:#666;
+        margin-top:4px;
+      }
+    }
+  }
+}
+
+#loading{
+  position: relative;
+  top:50px;
+}
+
+
+@media (min-width: 660px) {
+  h3{
+    background:transparent;
+  }
+
+  #load{
+    margin-top: 40px;
+    background: -webkit-linear-gradient(281deg,#0c63aa,#7ac4fa);
+    background: linear-gradient(169deg,#0c63aa,#7ac4fa);
+    background-color: #0c63aa;
+  }
+  #gameIDinvite {
+    text-align: center;
+    padding: 30px 0 30px 0;
+    display: table;
+    margin: 0 auto;
+    h3 {
+      font-size: 30px;
+      margin: 0;
+      display: table-cell;
+      color: #fff;
+      text-align: center;
+      vertical-align: middle;
+      a {
+        display: none;
+      }
+    }
+  }
+  #cards{
+    display: -webkit-flex;
+  	display: -moz-flex;
+  	display: -ms-flex;
+  	display: -o-flex;
+  	display: flex;
+    -webkit-box-lines:multiple;
+    -moz-box-lines:multiple;
+    -webkit-flex-wrap:wrap;
+    -moz-flex-wrap:wrap;
+    -ms-flex-wrap:wrap;
+    flex-wrap:wrap;
+    padding:0 20px;
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+    box-sizing: border-box;
+    width: 680px;
+    margin:0 auto;
+  }
+  mat-card{
+    max-width: 300px;
+    width: 300px;
+    margin: 0 10px 30px 10px;
+    padding: 18px 12px 40px 12px;
+    box-sizing: border-box;
+    mat-card-actions{
+      margin-left: 6px;
+      position: absolute;
+      bottom:0px;
+    }
+    &:nth-child(2n+1):last-child {
+      margin-right: 330px;
+    }
+  }
+  #loading{
+    display: none;
+  }
+}
+
+@media (min-width: 960px) {
+  #cards{
+    width: 960px;
+    padding: 0;
+    margin:0 auto;
+    -webkit-justify-content:flex-start;
+    justify-content:flex-start;
+  }
+  mat-card{
+    max-width: 300px;
+    width: 300px;
+    &:nth-child(2n+1):last-child {
+      margin-right: 10px;
+    }
+  }
+}

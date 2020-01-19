@@ -2,7 +2,7 @@ import { Component} from '@angular/core';
 import { GameService } from "../shared/services/gamemodel.service";
 // import { LanguageService } from "./languagemodel.service";
 // import { LanguageDialog } from './game.component';
-// import { WindowRef } from './WindowRef';
+//import { WindowRef } from './WindowRef';
 // import { GameformComponent } from './gameform.component';
 // import { LoadComponent } from './load.component';
 
@@ -27,7 +27,7 @@ export class InitComponent {
   game;
 
   constructor(
-      // winRef: WindowRef,
+      //winRef: WindowRef,
       // private route: ActivatedRoute,
       // private router: Router,
       // private languageService : LanguageService,
@@ -38,13 +38,12 @@ export class InitComponent {
     // languageService.setLa('en');
     // titleService.setTitle("simple bingo - free online bingo web application");
 
-    console.log("init");
-
     this.game = gameService.getGame();
     if(this.game.fl == "invite"){
       var body = document.getElementsByTagName("body")[0];
       body.className = "invite";
       this.gameUserFlg = false;
+      console.log("invited");
     }else{
       if( (window.innerWidth) <= 640 ){
         this.pcFlg = false;
@@ -61,8 +60,6 @@ export class InitComponent {
     this.gameUserFlg = !n;
   }
 
-  check(){
-    this.router.navigate(['/test']);
-  }
+
 
 }
