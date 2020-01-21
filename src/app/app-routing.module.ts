@@ -23,6 +23,7 @@ import { LoadComponent } from './load/load.component';
 const routes: Routes = [
   //{ path: '', redirectTo: '/sign-in', pathMatch: 'full'},
   { path: '', component: InitComponent },
+  { path: 'sign-in/:id', component: SignInComponent, canActivate: [SecureInnerPagesGuard]},
   { path: 'sign-in', component: SignInComponent, canActivate: [SecureInnerPagesGuard]},
   { path: 'user-profile', component: UserProfileComponent, canActivate: [AuthGuard] },
   { path: 'init', component: InitComponent },

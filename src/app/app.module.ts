@@ -77,6 +77,7 @@ import {
   MatTooltipModule,
   MatStepperModule,
 } from '@angular/material';
+import { OverComponent } from './over/over.component';
 
 @NgModule({
   declarations: [
@@ -100,6 +101,7 @@ import {
     SignoutDialog,
     DeleteDialog,
     LanguageDialog,
+    OverComponent,
   ],
   imports: [
     BrowserModule,

@@ -242,12 +242,25 @@ export class GameComponent implements OnInit, OnDestroy {
         banFire.snapshotChanges().subscribe(action => {
           this.banM = [];
           var ban = action.payload.val();
-          var key = action.key;
-          if(key){
-            ban["key"] = key;
-            this.banM.push(ban);
+          console.log(ban);
+          for(var key in ban){
+            var b = ban[key];
+            this.banM.push(b);
           }
         });
+        
+        // var banFire = db.list('games/' + this.gameId + "/ban");
+        // banFire.valueChanges().subscribe(v => {
+        //   this.banM = [];
+        //   var ban = v[0];
+        //   console.log(ban);
+        //   for(var key in ban){
+        //     var b = ban[key];
+        //     this.banM.push(b);
+        //   }
+        // });
+
+
         // fire ban  this.banM >
 
 
