@@ -19,6 +19,13 @@ export class AppComponent {
   ) {
     this.afAuth.auth.signInAnonymously();
 
+    db.object('item').valueChanges()//.pipe(take(1),)
+      .subscribe(u => {
+        console.log(u);
+      }
+    );
+
+
     // this.item  = db.object('item').valueChanges();
     // this.items = db.list('items').valueChanges();
 
@@ -34,6 +41,10 @@ export class AppComponent {
     //   console.log(v);
     //   //console.log(v);
     // });
+
+
+
+
 
 
   }
