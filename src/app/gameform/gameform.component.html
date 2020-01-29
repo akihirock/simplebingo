@@ -21,28 +21,30 @@
         </div>
 
         <div class="form-group">
-            <table>
-                <tr>
-                    <td>
-                      <mat-form-field>
-                        <mat-select formControlName="number" (selectionChange)="changeNumber($event)">
-                          <mat-option *ngFor="let num of numbers" [value]="num.value">
-                            {{ num.value }}
-                          </mat-option>
-                        </mat-select>
-                      </mat-form-field>
-                    </td>
-                    <td>
-                      <mat-slider
-                      formControlName="numberSlider"
-                      (change)="changeSlider($event)"
-                      [max]="max"
-                      [min]="min">
-                      </mat-slider>
-
-                    </td>
-                </tr>
-            </table>
+          <table id="maxnumber">
+            <tr>
+              <td colspan=2><label>Max Number</label></td>
+            </tr>
+            <tr>
+              <td>
+                <mat-form-field>
+                  <mat-select formControlName="number" (selectionChange)="changeNumber($event)">
+                    <mat-option *ngFor="let num of numbers" [value]="num.value">
+                      {{ num.value }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-slider
+                formControlName="numberSlider"
+                (change)="changeSlider($event)"
+                [max]="max"
+                [min]="min">
+                </mat-slider>
+              </td>
+            </tr>
+          </table>
         </div>
 
         <mat-form-field class="example-full-width">

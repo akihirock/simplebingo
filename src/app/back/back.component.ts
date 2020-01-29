@@ -18,7 +18,7 @@ export class BackComponent implements OnInit {
   tdSize : number = 5;
   tdW : number = 1;
   debug ;
-  @Input('navopen') navopen: boolean;
+  @Input('opened') opened: boolean;
   @Input('gameM') gameM;
   @Input('backM') backM;
   @Output() onDeleteNum = new EventEmitter<string>();
@@ -46,9 +46,11 @@ export class BackComponent implements OnInit {
   initsize(){
     var wih = window.innerHeight - 120;
     var wiw = window.innerWidth - 40 ;
-    if(this.navopen){
+    console.log(this.opened + "::" + wiw);
+    if(this.opened){
       wiw = wiw - 320;
     }
+    console.log(this.opened + "::" + wiw);
     this.debug = wiw;
     this.tdSize = 5;
     this.tdW = 1;
@@ -64,6 +66,9 @@ export class BackComponent implements OnInit {
            //console.log( this.tdW + "::" + this.tdSize );
         }
       }
+    }
+    if(this.tdW==1){
+      this.tdW = wiw/5 - 10;;
     }
     this.cardwidth = this.tdW;
     this.basewidth = this.tdSize * this.tdW + 1;
@@ -96,7 +101,7 @@ export class BackComponent implements OnInit {
 
   ngOnChanges(changes: {[propKey: string]: SimpleChange}) {
     for (let propName in changes) {
-      if( (propName == 'navopen') && (changes[propName].currentValue != changes[propName].previousValue) ){
+      if( (propName == 'opened') && (changes[propName].currentValue != changes[propName].previousValue) ){
         this.initsize();
       }
     }

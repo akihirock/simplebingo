@@ -9,10 +9,11 @@ import { ActivatedRoute } from '@angular/router';
 
 export class BallComponent{
 
-  @Input('navopen') navopen: boolean ;
+  @Input('opened') opened: boolean ;
   @Input('rnd') rnd: number ;
   @Input('onStartFlg') onStartFlg: string ;
   @Input('isOver') isOver: boolean ;
+
 
   @Output() onStart = new EventEmitter<string>();
   @Output() onCancel = new EventEmitter<string>();

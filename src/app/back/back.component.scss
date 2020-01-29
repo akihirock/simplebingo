@@ -75,7 +75,7 @@ $hitColor : pink;
           }
         }
       }
-      &.navopen{
+      &.opened{
         li{
           width: calc(20vmin - 70px) !important;
           height: calc(20vmin - 70px) !important;

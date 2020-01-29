@@ -33,13 +33,13 @@ export class GameComponent implements OnInit, OnDestroy {
   url:string;
   la:string;
   selectedIndex:number = 0;
+  //selectedIndexB:number = 0;
   navList: boolean = false;
 
   ownerId:string;
   owner: boolean = false;
   page:string = "bingocard";
   pageSP:string = "bingocard";
-  tab:string = "message";
 
   gameM : { tt: string} = {} as { tt: string};
   lineUrl:SafeResourceUrl;
@@ -77,13 +77,6 @@ export class GameComponent implements OnInit, OnDestroy {
 
 
 
-  navopen: boolean = true;
-
-  msgopen: boolean = false;
-  msgDelFlg: boolean = false;
-
-  playeropen: boolean = false;
-  playerDelFlg: boolean = false;
 
   icons : string[] = [
     "bat","bear","bee","bird","bug","butterfly","cat","chicken",
@@ -142,6 +135,7 @@ export class GameComponent implements OnInit, OnDestroy {
         this.gameM["cs"] = g["cs"];
         this.gameM["gc"] = g["gc"];
         this.gameM["mn"] = g["mn"];
+        this.gameM["nm"] = g["nm"];
         this.gameM["ow"] = g["ow"];
         this.gameM["tt"] = g["tt"];
 
@@ -237,18 +231,21 @@ export class GameComponent implements OnInit, OnDestroy {
         });
 
 
-        // fire ban  this.banM <
+        //fire ban  this.banM <
         var banFire = db.object('games/' + this.gameId + "/ban");
         banFire.snapshotChanges().subscribe(action => {
           this.banM = [];
           var ban = action.payload.val();
-          console.log(ban);
-          for(var key in ban){
-            var b = ban[key];
-            this.banM.push(b);
+          //console.log(ban);
+          if(ban){
+            for(var key in ban){
+              var b = ban[key];
+              this.banM.push(b);
+            }
           }
+
         });
-        
+
         // var banFire = db.list('games/' + this.gameId + "/ban");
         // banFire.valueChanges().subscribe(v => {
         //   this.banM = [];
@@ -430,7 +427,7 @@ export class GameComponent implements OnInit, OnDestroy {
 
 
   ngOnInit() {
-    if(window.innerWidth >= 640){
+    if(window.innerWidth >= 740){
       this.isSP = false;
       this.opened = true;
     }else{
@@ -582,16 +579,6 @@ export class GameComponent implements OnInit, OnDestroy {
   }
   /* ------------------- sound end ----------------- */
 
-
-
-
-  onInvite(){
-    this.sidenav.open();
-    this.selectedIndex++;
-    this.tab = this.activeTab = this.pageSP = 'player';
-    this.playeropen = true;
-  }
-
   checkBingo = function(n){
     for(var i=0,iMax=n.length;i<iMax;i++){
       for(var j=0,jMax=this.backM.length;j<jMax;j++){
@@ -675,35 +662,6 @@ export class GameComponent implements OnInit, OnDestroy {
     this.checkNum(this.youM["nu"],this.yourNum,false,null);
   }
 
-
-  // signout(uid,redirect){
-  //   if(this.playersM[uid]!=undefined){
-  //     var player = this.playersM[uid];
-  //     var you = {
-  //       nm : player["nm"],
-  //       ic : player["ic"]
-  //     }
-  //
-  //     this.db.list('msgs/' + this.gameId).remove(uid).then(_ => {
-  //       //msg deleted
-  //       this.db.object('games/' + this.gameId + '/ban/' + uid).set(you).then(_ => {
-  //         //pushed ban list
-  //         this.db.list('games/' + this.gameId + '/us').remove(uid).then(_ => {
-  //           //deleted game uid
-  //           this.db.object('users/' + uid).remove(this.gameId).then(_ => {
-  //             //deleted game uid
-  //             if(redirect){
-  //               //this.router.navigate(['/']);
-  //               location.href = "/";
-  //             }
-  //           });
-  //         });
-  //       });
-  //     });
-  //   }
-  // }
-
-
   onPushMsg(m){
     if(m != ""){
       var obj = {
@@ -719,12 +677,54 @@ export class GameComponent implements OnInit, OnDestroy {
     }
   }
 
+
+
+  opened:boolean = false;
+
+  msgopen: boolean = false;
+  msgDelFlg: boolean = false;
+
+  inviteopenPre: boolean = false;
+  inviteopen: boolean = false;
+  playerDelFlg: boolean = false;
+  activeTab:string = "message";
+
+
+
+  onInvite(){
+    //this.sidenav.open();
+    // this.selectedIndex++;
+    // this.tab = this.activeTab = this.pageSP = 'player';
+    //this.inviteopen = true;
+
+    if(this.isSP){
+      this.spNavClick('player');
+      this.inviteopen = true;
+    }else{
+      this.opened = true;
+      this.inviteopenPre = true;
+
+      if(this.activeTab == 'player'){
+        if(this.inviteopen){
+          this.inviteopen = this.inviteopenPre = false;
+        }else{
+          this.inviteopen = this.inviteopenPre;
+          this.inviteopenPre = false;
+        }
+      }else{
+        this.selectedIndex++;;
+      }
+    }
+  }
+
+
   sideNavOpen(){
-    this.navopen = true;
+    console.log("sideNavOpen()");
+    this.opened = true;
   }
 
   sideNavClose(){
-    this.navopen =  false;
+    this.opened =  false;
   }
 
   openMsg(){
@@ -750,37 +750,31 @@ export class GameComponent implements OnInit, OnDestroy {
   }
 
   openPlayer(){
-    this.playeropen = !this.playeropen;
+    console.log("openplayer");
+    console.log(this.inviteopen);
+    this.inviteopen = !this.inviteopen;
   }
 
   closePlayer(){
-    this.playeropen = false;
+    this.inviteopen = false;
     this.playerDelFlg = true;
   }
 
   //spメニュクリック
   spNavClick(m){
-    this.page = this.pageSP = this.tab = this.activeTab = m;
-    this.navList = this.playeropen = this.msgopen = false;
+    this.page = this.pageSP = this.activeTab = m;
+    this.navList = this.inviteopen = this.msgopen = false;
   }
-
-  activeTab:string = "message";
-
-  opened:boolean = false;
 
   openSide(p: string){
-    this.activeTab = p;
-     if(this.tab == p){
-       this.opened = false;
-       this.tab = "";
+    console.log("openSide:" + p + "?" + this.activeTab);
+     if(this.activeTab == p){
+       this.opened = !this.opened;
      }else{
        this.opened = true;
-       this.tab = p;
+       this.activeTab = p;
      }
-     this.playeropen = false;
   }
-
-
 
   changeTab1(event){
     if(this.owner){
@@ -800,13 +794,16 @@ export class GameComponent implements OnInit, OnDestroy {
     }
   }
 
-
   changeTab2(event){
+    console.log("changeTab2");
     if(event.index == 0){
       this.openSide("message");
     }else if(event.index == 1){
       this.openSide("player");
     }
+    this.inviteopen = this.inviteopenPre;
+    this.inviteopenPre = false;
+
   }
 
 
@@ -814,9 +811,9 @@ export class GameComponent implements OnInit, OnDestroy {
     //this.playersM
     var count = 0;
     for (var k in playersM) {
-        if (playersM.hasOwnProperty(k)) {
-           ++count;
-        }
+      if (playersM.hasOwnProperty(k)) {
+         ++count;
+      }
     }
     return count;
   }

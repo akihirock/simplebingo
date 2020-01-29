@@ -14,7 +14,7 @@ export class MessageComponent implements OnInit {
   @Input('ownerId') ownerId;
   @Input('msgDelFlg') msgDelFlg;
   @Input('playerDelFlg') playerDelFlg;
-  @Input('tab') tab;
+  @Input('activeTab') activeTab;
   @Input('gameM') gameM;
 
   isVisible = {};

@@ -9,12 +9,12 @@
     </div>
   -->
 
-    <h3>User Setting</h3>
+    <h3><a (click)="check()"><mat-icon>arrow_back</mat-icon></a>User Setting</h3>
 
     <form name="settingGame" [formGroup]="u">
 
         <div id="area_icon">
-            <img id="yourIcon" src="{{yourIcon}}">
+            <img id="yourIcon" src="../../assets/svg/{{icons[iconNum]}}.svg">
             <div (click)="showIconList=!showIconList;">chage icon</div>
         </div>
 

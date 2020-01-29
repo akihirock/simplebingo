@@ -24,10 +24,30 @@ export class SecureInnerPagesGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean>{
     if(this.authService.isLoggedIn) {
+      var r = this.router;
+      var gid = next.params['id'];
+
       var uid = this.authService.getUserID.uid;
       var usersRef = this.db.object("users/" + uid);
-      var gid = next.params['id'];
-      var r = this.router;
+      var gamesRef = this.db.object("games/" + gid);
+
+
+      return gamesRef.valueChanges().pipe(take(1),map(
+        function(g){
+          if(g["ban"]){
+            var ban = g["ban"];
+            uid = "rUnrowM7XNZ5Xyf9YgjFg7uFOjG3";
+            if(ban[uid]){
+              console.log("uye");
+            }else{
+              console.log("no");
+            }
+          }else{
+
+          }
+        }
+      ));
+
       return usersRef.valueChanges().pipe(take(1),map(
         function(x){
            if(x[gid]){

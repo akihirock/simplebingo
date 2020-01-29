@@ -327,19 +327,16 @@ section.sp{
 }
 
 
-@media (min-width: 600px) {
-
+@media (min-width: 740px) {
   header{
     display: block;
   }
-
   #inviteForm{
     top: 99px;
   }
   #tabA{
     float: left;
   }
-
   #tabA span,
   #tabB span{
     background: #d9534f;
@@ -360,13 +357,11 @@ section.sp{
     top: 7px;
     right: 50px;
   }
-
   mat-sidenav-container{
     position: fixed;
     top: 100px;
     height:calc(100vh - 100px);
   }
-
   mat-sidenav {
     width: 320px;
     padding: 10px 0 10px 10px;
@@ -375,26 +370,21 @@ section.sp{
       background-color: #fff;
     }
   }
-
   section{
     background: #eee;
     header{
     background: #fff;
     }
   }
-
   #inviteForm{
-    width: 302px;
+    width: 319px;
     ul{
       li img{
         width: 42px;
         height:42px;
       }
     }
-
-
   }
-
   .btnAdd,
   .btnClose{
     position: fixed;
@@ -402,27 +392,22 @@ section.sp{
     color:#fff;
     display: block;
   }
-
   .btnAdd{
     left: 20px;
     background: #4285f4;
     z-index: 1;
   }
-
   .btnClose{
     left: 235px;
     background: #d9534f;
     z-index: 3;
   }
-
   .example-fill-remaining-space {
     flex: 1 1 auto;
   }
-
   ul.nav{
     display: none;
   }
-
   #messageForm{
     position: fixed;
     bottom: 0;
@@ -442,7 +427,6 @@ section.sp{
       border: none;
     }
   }
-
   #deleteMsg,
   #deletePlayer{
     background: #fff;
@@ -470,17 +454,16 @@ section.sp{
     -o-justify-content: space-around;
     justify-content: space-around;
   }
-
 }
 
 
-@media (min-width: 1000px) {
+@media (min-width: 740px) {
   .mat-sidenav-content{
     background: #eee;
   }
 
   mat-toolbar {
-    padding: 0 65px;
+    padding: 0 1rem;
     position: relative;
     ul{
       display: table;
@@ -507,4 +490,12 @@ section.sp{
     }
   }
 
+}
+
+
+
+@media (min-width: 1000px) {
+  mat-toolbar {
+    padding: 0 65px;
+  }
 }

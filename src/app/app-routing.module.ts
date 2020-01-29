@@ -31,8 +31,8 @@ const routes: Routes = [
   { path: 'test', component: TestComponent , canActivate: [AuthGuard]},
   { path: 'userform',component: UserformComponent},
   { path: 'gameform',component: GameformComponent},
-  { path: 'game/:id',component: GameComponent, canActivate: [SecureInnerPagesGuard]},
-  { path: 'game',component: GameComponent, canActivate: [SecureInnerPagesGuard]},
+  //{ path: 'game/:id',component: GameComponent, canActivate: [SecureInnerPagesGuard]},
+  { path: 'game/:id',component: GameComponent},
 
 ];
 

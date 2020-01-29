@@ -33,15 +33,27 @@ export class GameformComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.f = this.fb.group({
-      'title':['', Validators.required],
-      'cardSize':['5'],
-      'number':['78'],
-      'numberSlider':['78'],
-      'message':[''],
-    });
-    for(var i= this.min; i <= this.max;i++ ){
-      this.numbers.push({value:i+""});
+    console.log("game init");
+    if(this.game.tt){
+      this.f = this.fb.group({
+        'title':[this.game.tt, Validators.required],
+        'cardSize':this.game.cs,
+        'number':[this.game.mn],
+        'numberSlider':[this.game.mn],
+        'message':[this.game.tx],
+      });
+      this.changeCardSize({value:this.game.cs});
+    }else{
+      this.f = this.fb.group({
+        'title':['', Validators.required],
+        'cardSize':['5'],
+        'number':['78'],
+        'numberSlider':['78'],
+        'message':[''],
+      });
+      for(var i= this.min; i <= this.max;i++ ){
+        this.numbers.push({value:i+""});
+      }
     }
   }
 

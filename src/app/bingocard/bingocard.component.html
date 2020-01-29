@@ -1,4 +1,4 @@
-<section id="card" [class.navopen]="navopen">
+<section id="card" [class.opened]="opened">
   <ul class="col{{gameM.cs}}">
       <li [class.hit]="isHit(n)" [class.get]="isGet(n)" (click)="getNum(n)" *ngFor="let n of youM.nu;">
           <span [class.zero]="cardNum()=='B'" *ngIf='n==0'>{{cardNum()}}</span>

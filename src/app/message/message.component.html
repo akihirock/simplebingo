@@ -1,6 +1,6 @@
 <section #msgSection>
 
-  <div *ngIf="tab == 'message'">
+  <div *ngIf="activeTab == 'message'">
       <div class="card" *ngFor="let n of msgsM">
           <dl class="bcard">
               <dt>
@@ -19,7 +19,7 @@
       </div>
   </div>
 
-  <div *ngIf="tab == 'player'">
+  <div *ngIf="activeTab == 'player'">
     <div class="card" *ngFor="let key of keys();">
         <dl class="bcard" (click)="isVisible[key] = !isVisible[key]" >
             <dt>

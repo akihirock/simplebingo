@@ -522,6 +522,21 @@ mat-card{
 }
 
 
+@media (min-width: 640px) and (max-width: 960px){
+  mat-sidenav-container.open #bingoNum {
+    width: calc(100vmin - 320px) !important;
+    height: calc(100vmin - 320px) !important;
+    line-height: calc(100vmin - 320px) !important;
+  }
+
+  mat-sidenav-container.open #bingoNum span.zero{
+    font-size: calc(65vmin - 320px) !important;
+  }
+
+
+}
+
+
 /* .dmat-drawer{
   transform: translate3d(0,0,0) !important;
   visibility: visible !important;

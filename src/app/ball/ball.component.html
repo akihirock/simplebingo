@@ -1,7 +1,7 @@
-<section [class.navopen]="navopen" id="ball">
+<section [class.opened]="opened" id="ball">
   <div *ngIf="!isOver">
     <span id="bingoNum"><span [class.zero]="rnd==0">{{rnd | bingo_type:5}}</span></span>
-    <button *ngIf="onStartFlg!='stop'" (click)="invite()" id="onInviteArea" mat-fab>
+    <button *ngIf="onStartFlg!='stop'" (click)="invite();" id="onInviteArea" mat-fab>
       <mat-icon aria-label="Example icon-button with a heart icon">person_add</mat-icon>
     </button>
     <button (click)="start()" id="onStartArea" mat-fab>{{onStartFlg}}</button>

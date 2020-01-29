@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Observable } from 'rxjs';
 import { first, map ,take } from 'rxjs/operators';
+import { AuthService } from "./shared/services/auth.service";
 
 import { AngularFireAuth } from "@angular/fire/auth";
 
@@ -15,13 +16,19 @@ export class AppComponent {
 
   constructor(
     private db: AngularFireDatabase,
-    private afAuth: AngularFireAuth
+    private afAuth: AngularFireAuth,
+    public authService: AuthService,
   ) {
     this.afAuth.auth.signInAnonymously();
 
+    if(this.authService.isLoggedIn) {
+      var uid = this.authService.getUserID.uid;
+      console.log("uid:" + uid);
+    }
+
     db.object('item').valueChanges()//.pipe(take(1),)
       .subscribe(u => {
-        console.log(u);
+        //console.log(u);
       }
     );
 

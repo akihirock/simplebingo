@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 
 export class BingocardComponent {
 
-  @Input('navopen') navopen: boolean;
+  @Input('opened') opened: boolean;
   @Input('backM') backM;
   @Input('gameM') gameM;
   @Input('youM') youM;

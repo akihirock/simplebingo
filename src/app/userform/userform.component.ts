@@ -63,21 +63,24 @@ export class UserformComponent{
       this.invite = true;
       //this.userRef = af.database.object('games/' + this.game.id + '/us/' + this.uid);
       this.gameUser = this.db.object('games/' + this.game.id + '/us/' + this.uid);
-
       console.log("users/" +  this.uid + "/" + this.game.id);
-
       this.userRef = this.db.object("users/" +  this.uid + "/" + this.game.id);
-
-
     }
 
 
   }
 
   ngOnInit() {
-    this.u = this.fb.group({
-      'name':['', Validators.required]
-    });
+    if(this.game.nm){
+      this.u = this.fb.group({
+        'name':[this.game.nm, Validators.required]
+      });
+      this.iconNum = this.game.ic;
+    }else{
+      this.u = this.fb.group({
+        'name':['', Validators.required]
+      });
+    }
   }
 
   makeYourNum(cardSize,maxNum){
@@ -196,9 +199,7 @@ export class UserformComponent{
   }
 
   joinBingo(){
-
     console.log("joinBingo");
-
     this.toGame = true;
     var you = {
       nm : this.u.controls['name'].value,
@@ -218,9 +219,20 @@ export class UserformComponent{
         router.navigate(['/game',gKey]);
       });
     });
-
-
-
   }
+
+  check(){
+    this.game.nm = this.u.controls['name'].value;
+    this.game.ic = this.iconNum;
+    this.game.sd = false;
+    this.game.nu = [];
+    console.log(this.game);
+    if(this.pcFlg){
+      this.onToGameForm.emit(false);
+    }else{
+      this.router.navigate(['/gameform']);
+    }
+  }
+
 
 }

@@ -326,19 +326,19 @@ $getColor : pink;
 
 
 
-@media (min-width: 640px) and (max-width: 960px){
-
-#card.navopen{
-  ul{
-    width:calc(100vmin - 340px);
-    li{
-      width: calc(20vmin - 68px);
-      height: calc(20vmin - 68px);
-      line-height: calc(20vmin - 74px);
-      font-size: 5vmin;
-      position: relative;
-    }
-  }
-}
-
-}
+// @media (min-width: 640px) and (max-width: 960px){
+//
+// #card.navopen{
+//   ul{
+//     width:calc(100vmin - 340px);
+//     li{
+//       width: calc(20vmin - 68px);
+//       height: calc(20vmin - 68px);
+//       line-height: calc(20vmin - 74px);
+//       font-size: 5vmin;
+//       position: relative;
+//     }
+//   }
+// }
+//
+// }

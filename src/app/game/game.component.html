@@ -33,7 +33,7 @@
     <header>
 
       <ng-container *ngIf="owner; else guestContent">
-        <mat-tab-group id="tabA" (selectedTabChange)="changeTab1($event)" [selectedIndex]="selectedIndex">
+        <mat-tab-group id="tabA" (selectedTabChange)="changeTab1($event)">
           <mat-tab>
             <ng-template mat-tab-label>
               Roulette
@@ -54,7 +54,7 @@
       </ng-container>
 
       <ng-template #guestContent>
-        <mat-tab-group id="tabA" (selectedTabChange)="changeTab1($event)" [selectedIndex]="selectedIndex">
+        <mat-tab-group id="tabA" (selectedTabChange)="changeTab1($event)" >
           <mat-tab>
             <ng-template mat-tab-label>
               Card
@@ -69,7 +69,7 @@
         </mat-tab-group>
       </ng-template>
 
-      <mat-tab-group id="tabB" (selectedTabChange)="changeTab2($event)">
+      <mat-tab-group id="tabB" [selectedIndex]="selectedIndex" (selectedTabChange)="changeTab2($event)">
         <mat-tab>
           <ng-template mat-tab-label >
             Messages
@@ -87,10 +87,10 @@
     </header>
 
 
-    <mat-sidenav-container class="example-container" autosize>
+    <mat-sidenav-container [class.open]="opened" class="example-container" autosize>
 
       <mat-sidenav #sidenav [class.modeSP]="isSP"  class="example-sidenav" mode="side" [(opened)]="opened">
-        <message *ngIf="playersM" [(uid)]='uid' [(msgsM)]='msgsM' [(banM)]='banM' [(playersM)]="playersM" [(ownerId)]="ownerId" [(msgDelFlg)]="msgDelFlg" [(playerDelFlg)]="playerDelFlg" [(tab)]="tab"></message>
+        <message *ngIf="playersM" [(uid)]='uid' [(msgsM)]='msgsM' [(banM)]='banM' [(playersM)]="playersM" [(ownerId)]="ownerId" [(msgDelFlg)]="msgDelFlg" [(playerDelFlg)]="playerDelFlg" [(activeTab)]="activeTab"></message>
       </mat-sidenav>
 
       <div (click)="openSide(activeTab)" id="opener">
@@ -100,22 +100,22 @@
 
       <div class="example-sidenav-content">
 
-        <ball *ngIf="owner && gameM && (page=='ball')" [(rnd)]="rnd" [(isOver)]="isOver" [(onStartFlg)]="onStartFlg" [(navopen)]="navopen" (onStart)="onStart()" (onCancel)="onCancel()" (onInvite)="onInvite()"></ball>
+        <ball *ngIf="owner && gameM && (page=='ball')" [(rnd)]="rnd" [(isOver)]="isOver" [(onStartFlg)]="onStartFlg" [(opened)]="opened" (onStart)="onStart()" (onCancel)="onCancel()" (onInvite)="onInvite()"></ball>
 
-        <bingocard *ngIf="youM && (page=='bingocard')" [(rnd)]="rnd" [(onStartFlg)]="onStartFlg" [(gameM)]="gameM" [(backM)]="backM" [(youM)]="youM"  [(yourNum)]="yourNum"  [navopen]="navopen" (onGetNum)="onGetNum($event)"></bingocard>
+        <bingocard *ngIf="youM && (page=='bingocard')" [(rnd)]="rnd" [(onStartFlg)]="onStartFlg" [(gameM)]="gameM" [(backM)]="backM" [(youM)]="youM"  [(yourNum)]="yourNum"  [opened]="opened" (onGetNum)="onGetNum($event)"></bingocard>
 
-        <back *ngIf="gameM && (page=='back')" [(gameM)]="gameM" [(backM)]="backM"  [navopen]="opened" (onDeleteNum)="onDeleteNum($event)"></back>
+        <back *ngIf="gameM && (page=='back')" [(gameM)]="gameM" [(backM)]="backM"  [opened]="opened" (onDeleteNum)="onDeleteNum($event)"></back>
 
-        <message *ngIf="playersM && isSP && ((page=='message')||(page=='player'))" [(uid)]='uid' [(msgsM)]='msgsM' [(banM)]='banM' [(playersM)]="playersM" [(ownerId)]="ownerId" [(msgDelFlg)]="msgDelFlg" [(playerDelFlg)]="playerDelFlg" [(tab)]="tab"></message>
+        <message *ngIf="playersM && isSP && ((page=='message')||(page=='player'))" [(uid)]='uid' [(msgsM)]='msgsM' [(banM)]='banM' [(playersM)]="playersM" [(ownerId)]="ownerId" [(msgDelFlg)]="msgDelFlg" [(playerDelFlg)]="playerDelFlg" [(activeTab)]="activeTab"></message>
 
       </div>
 
     </mat-sidenav-container>
 
 
-    <div>
-        <div *ngIf="navopen && (tab =='message')">
-            <div *ngIf="navopen && msgopen" id="messageForm">
+    <div *ngIf="opened || pageSP=='message' || pageSP=='player'">
+        <div *ngIf="opened || pageSP=='message'">
+            <div *ngIf="msgopen" id="messageForm">
                 <div>
                 　　<textarea #msg></textarea>
                 </div>
@@ -129,9 +129,8 @@
             <button *ngIf="!msgDelFlg && msgsM.length>0" (click)="closeMsg();" class="btnClose" mat-fab><mat-icon>clear</mat-icon></button>
         </div>
 
-        <div *ngIf="navopen && (tab =='player')">
-
-            <div *ngIf="navopen && playeropen" id="inviteForm">
+        <div *ngIf="opened || pageSP=='player'">
+            <div id="inviteForm" *ngIf="inviteopen && activeTab=='player'">
               <!-- <p class="gameID">Game ID : {{gameM?.gc}}</p> -->
               <p class="trimming">
                   <img class="qrimage" src="https://chart.googleapis.com/chart?cht=qr&amp;chs=300x300&amp;chl={{url}}">
@@ -144,7 +143,7 @@
                         </a>
                       </li>
                       <li class="twitter">
-                        <a class="button-twitter" href="http://twitter.com/intent/tweet?text={{gameM.tt}} hosted by {{gm.nm}}. nknl&amp;url={{url}};" onclick="window.open(encodeURI(decodeURI(this.href)), 'tweetwindow', 'width=550, height=450, personalbar=0, toolbar=0, scrollbars=1, resizable=1' ); return false;" target="_blank">
+                        <a class="button-twitter" href="http://twitter.com/intent/tweet?text={{gameM.tt}} hosted by {{gameM.nm}}. &amp;url={{url}};" onclick="window.open(encodeURI(decodeURI(this.href)), 'tweetwindow', 'width=550, height=450, personalbar=0, toolbar=0, scrollbars=1, resizable=1' ); return false;" target="_blank">
                           <i class="fontawesome-twitter"></i><img src="assets/img/ico_twitter.png" width="56" height="56" alt="twitter">
                         </a>
                       </li>
@@ -154,7 +153,7 @@
                         </a>
                       </li>
                       <li class="mail">
-                        <a href="mailto:?subject={{gameM.tt}}&amp;body={{gameM.tt}} hosted by {{gm.nm}}%0d%0a%0d%0a{{url}}">
+                        <a href="mailto:?subject={{gameM.tt}}&amp;body={{gameM.tt}} hosted by {{gameM.nm}}%0d%0a%0d%0a{{url}}">
                           <img src="assets/img/ico_mail.png" width="56" height="56" alt="mail">
                         </a>
                       </li>
@@ -166,8 +165,10 @@
               <button (click)="openSignoutDialog(true)" mat-raised-button  color="primary">{{ 'Eject'  }}</button>
               <button (click)="playerDelFlg = false;" mat-raised-button color="primary">{{ 'Close'  }}</button>
             </div>
-            <button *ngIf="!playerDelFlg" (click)="openPlayer();" class="btnAdd" mat-fab><mat-icon>person_add</mat-icon></button>
+
+            <button *ngIf="!playerDelFlg &&  activeTab=='player'" (click)="openPlayer();" class="btnAdd" mat-fab><mat-icon>person_add</mat-icon></button>
             <button *ngIf="owner && keys(playersM)!=1 && !playerDelFlg" (click)="closePlayer();" class="btnClose player" mat-fab><mat-icon>person_outline</mat-icon></button>
+
         </div>
     </div>
 
