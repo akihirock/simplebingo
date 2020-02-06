@@ -310,10 +310,10 @@ body{
 }
 */
 
-body.game #loading,
+/* body.game #loading,
 body.game #point,
 body.game #headerTop,
-body.game #secIntro,
+body.game #secIntro, */
 .invite userform h3{
   display: none;
 }

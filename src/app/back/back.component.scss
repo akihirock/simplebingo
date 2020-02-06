@@ -33,6 +33,7 @@ $hitColor : pink;
           width: auto !important;
           color: #fff !important;
           display: block;
+          padding-right: .5vmin;
         }
       }
       &.hit{
@@ -104,7 +105,7 @@ $hitColor : pink;
         font-size: calc( 10vmin - 2px) !important;
         span{
           &.index{
-            font-size: 4.5vmin;
+            font-size: 5.5vmin !important;
           }
         }
       }

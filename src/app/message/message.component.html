@@ -5,7 +5,7 @@
           <dl class="bcard">
               <dt>
                   <span *ngIf="ownerId == n.ur" class="iconHost">{{ 'host'  }}</span>
-                  <img src="/assets/svg/{{icons[n.ic]}}.svg">
+                  <img src="assets/svg/{{icons[n.ic]}}.svg">
                   <span *ngIf="playersM[n.ur].st>0 && playersM[n.ur].st<100" class="iconStatus">REACH</span>
                   <span *ngIf="playersM[n.ur].st>0 && playersM[n.ur].st>=100" class="iconStatus">Bingo by {{ playersM[n.ur].st-100}} turns</span>
               </dt>
@@ -24,7 +24,7 @@
         <dl class="bcard" (click)="isVisible[key] = !isVisible[key]" >
             <dt>
                 <span *ngIf="ownerId == key" class="iconHost">{{ 'host'  }}</span>
-                <img src="/assets/svg/{{icons[playersM[key].ic]}}.svg">
+                <img src="assets/svg/{{icons[playersM[key].ic]}}.svg">
                 <span *ngIf="playersM[key].st>0 && playersM[key].st<100" class="iconStatus">REACH</span>
                 <span *ngIf="playersM[key].st>0 && playersM[key].st>=100" class="iconStatus">Bingo by {{ playersM[key].st-100}} turns</span>
             </dt>

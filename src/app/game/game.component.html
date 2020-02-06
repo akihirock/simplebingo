@@ -6,15 +6,15 @@
     <span *ngIf="gameM">{{gameM?.tt}}</span>
     <span class="example-fill-remaining-space"></span>
     <ul [hidden]="!navList">
-      <li class='iconYou'><dl><dt *ngIf="youM"><img [src]="'/assets/svg/' + icons[youM.ic] + '.svg'"></dt><dd>{{youM?.nm}}</dd></dl></li>
+      <li class='iconYou'><dl><dt *ngIf="youM"><img [src]="'assets/svg/' + icons[youM.ic] + '.svg'"></dt><dd>{{youM?.nm}}</dd></dl></li>
       <li class='soundOn'>
-          <a *ngIf="soundOn" (click)="soundOnOff()"><i class="material-icons">&#xE050;</i><span>{{ 'Sound On'  }}</span></a>
-          <a *ngIf="!soundOn" (click)="soundOnOff()"><i class="material-icons">&#xE04F;</i><span>{{ 'Sound Off'  }}</span></a>
+          <a *ngIf="soundOn" (click)="soundOnOff()"><i class="material-icons">&#xE050;</i><span i18n>Sound On</span></a>
+          <a *ngIf="!soundOn" (click)="soundOnOff()"><i class="material-icons">&#xE04F;</i><span i18n>Sound Off</span></a>
       </li>
-      <li><a (click)="openLanguageDialog()"><i class="material-icons">&#xE894;</i><span>{{ 'language'  }}</span></a></li>
-      <li *ngIf="owner" class='delGame'><a (click)="openDelDialog()"><i class="material-icons">&#xE872;</i><span>{{ 'delete game'  }}</span></a></li>
-      <li *ngIf="!owner" class='delGame'><a (click)="openSignoutDialog(false)"><i class="material-icons">&#xE906;</i><span>{{ 'sign out'  }}</span></a></li>
-      <li class='top'><a [attr.href]="'/'"><i class="material-icons">&#xE88A;</i><span>{{ 'home'  }}</span></a></li>
+      <li><a (click)="openLanguageDialog()"><i class="material-icons">&#xE894;</i><span>language</span></a></li>
+      <li *ngIf="owner" class='delGame'><a (click)="openDelDialog()"><i class="material-icons">&#xE872;</i><span i18n>delete game</span></a></li>
+      <li *ngIf="!owner" class='delGame'><a (click)="openSignoutDialog(false)"><i class="material-icons">&#xE906;</i><span i18n>sign out</span></a></li>
+      <li class='top'><a [attr.href]="'/'"><i class="material-icons">&#xE88A;</i><span i18n>home</span></a></li>
     </ul>
 
     <button (click)="navList = !navList" type="button">
@@ -35,18 +35,18 @@
       <ng-container *ngIf="owner; else guestContent">
         <mat-tab-group id="tabA" (selectedTabChange)="changeTab1($event)">
           <mat-tab>
-            <ng-template mat-tab-label>
+            <ng-template mat-tab-label i18n>
               Roulette
             </ng-template>
           </mat-tab>
           <mat-tab>
-            <ng-template mat-tab-label>
+            <ng-template mat-tab-label i18n>
               Card
             </ng-template>
           </mat-tab>
           <mat-tab>
             <ng-template mat-tab-label>
-              Numbers
+              <ng-container i18n>Numbers</ng-container>
               <span *ngIf="backM!=null && backM.length>0" class="pop"> {{backM.length}}</span>
             </ng-template>
           </mat-tab>
@@ -56,29 +56,29 @@
       <ng-template #guestContent>
         <mat-tab-group id="tabA" (selectedTabChange)="changeTab1($event)" >
           <mat-tab>
-            <ng-template mat-tab-label>
+            <ng-template mat-tab-label i18n>
               Card
             </ng-template>
           </mat-tab>
           <mat-tab>
             <ng-template mat-tab-label>
-              Numbers
+              <ng-container i18n>Numbers</ng-container>
               <span *ngIf="backM!=null && backM.length>0" class="pop"> {{backM.length}}</span>
             </ng-template>
           </mat-tab>
         </mat-tab-group>
       </ng-template>
 
-      <mat-tab-group id="tabB" [selectedIndex]="selectedIndex" (selectedTabChange)="changeTab2($event)">
+      <mat-tab-group id="tabB" #tabGroup (click)="clickTab2()" [selectedIndex]="selectedIndex" (selectedTabChange)="changeTab2($event)">
         <mat-tab>
-          <ng-template mat-tab-label >
-            Messages
+          <ng-template mat-tab-label>
+            <ng-container i18n>Messages</ng-container>
             <span *ngIf="msgsM.length!=0" class="pop">{{msgsM.length}}</span>
           </ng-template>
         </mat-tab>
         <mat-tab>
           <ng-template mat-tab-label>
-            Players
+            <ng-container i18n>Players</ng-container>
             <span *ngIf="keys(playersM)!=0 && keys(playersM)>1" class="pop">{{keys(playersM)}}</span>
           </ng-template>
         </mat-tab>
@@ -119,11 +119,11 @@
                 <div>
                 　　<textarea #msg></textarea>
                 </div>
-                <button (click)="onPushMsg(msg.value)" mat-raised-button  color="primary">POST</button>
+                <button (click)="onPushMsg(msg.value)" mat-raised-button  color="primary" i18n>POST</button>
             </div>
             <div *ngIf="msgDelFlg" id="deleteMsg">
-                <button (click)="openDelMsgDialog()" mat-raised-button  color="primary">Delete</button>
-                <button (click)="msgDelFlg = false;" mat-raised-button  color="primary">Close</button>
+                <button (click)="openDelMsgDialog()" mat-raised-button  color="primary" i18n>Delete</button>
+                <button (click)="msgDelFlg = false;" mat-raised-button  color="primary" i18n>Close</button>
             </div>
             <button *ngIf="!msgDelFlg" (click)="openMsg();" class="btnAdd" mat-fab><mat-icon>add</mat-icon></button>
             <button *ngIf="!msgDelFlg && msgsM.length>0" (click)="closeMsg();" class="btnClose" mat-fab><mat-icon>clear</mat-icon></button>
@@ -162,8 +162,8 @@
             </div>
 
             <div *ngIf="playerDelFlg" id="deletePlayer">
-              <button (click)="openSignoutDialog(true)" mat-raised-button  color="primary">{{ 'Eject'  }}</button>
-              <button (click)="playerDelFlg = false;" mat-raised-button color="primary">{{ 'Close'  }}</button>
+              <button (click)="openSignoutDialog(true)" mat-raised-button  color="primary" i18n>Eject</button>
+              <button (click)="playerDelFlg = false;" mat-raised-button color="primary" i18n>Close</button>
             </div>
 
             <button *ngIf="!playerDelFlg &&  activeTab=='player'" (click)="openPlayer();" class="btnAdd" mat-fab><mat-icon>person_add</mat-icon></button>
@@ -175,25 +175,25 @@
     <ul class="nav">
       <li *ngIf="owner" [class.active]="pageSP=='ball'"
           (click)="spNavClick('ball');">
-          <span class="icon"><span>{{rnd | bingo_type:1}}</span></span><span class="title">'Roulette'</span>
+          <span class="icon"><span>{{rnd | bingo_type:1}}</span></span><span class="title" i18n>'Roulette'</span>
       </li>
       <li [class.active]="pageSP=='bingocard'"
           (click)="spNavClick('bingocard');">
-          <i class="material-icons">&#xE5C3;</i>Card
+          <i class="material-icons">&#xE5C3;</i><ng-container i18n>Card</ng-container>
       </li>
       <li [class.active]="pageSP=='back'" class="navBack"
           (click)="spNavClick('back');">
-          <i class="material-icons">&#xE242;</i>Numbers
+          <i class="material-icons">&#xE242;</i><ng-container i18n>Numbers</ng-container>
           <span *ngIf="backM!=null && (backM.length)>0" class="pop"> {{backM.length}}</span>
       </li>
       <li [class.active]="pageSP=='message'" class="navMsg"
           (click)="spNavClick('message');">
-          <i class="material-icons">&#xE0CA;</i>Messages
+          <i class="material-icons">&#xE0CA;</i><ng-container i18n>Messages</ng-container>
           <span *ngIf="msgsM.length!=0" class="pop">{{msgsM.length}}</span>
       </li>
       <li [class.active]="pageSP=='player'" class="navPlayer"
           (click)="spNavClick('player');">
-          <i class="material-icons">&#xE7FB;</i>Players
+          <i class="material-icons">&#xE7FB;</i><ng-container i18n>Players</ng-container>
           <span *ngIf="keys(playersM)!=0" class="pop">{{keys(playersM)}}</span>
       </li>
     </ul>

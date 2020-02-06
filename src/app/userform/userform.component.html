@@ -1,35 +1,35 @@
 <div id="userForm">
 
-    <!-- <div id="invite" *ngIf="game.fl">
+    <div id="invite" *ngIf="game.fl">
       <h2>{{game.tt}}</h2>
-      <dl>
+      <!-- <dl>
         <dt><img src="./svg/{{icons[game.ic]}}.svg"></dt>
         <dd>{{game.nm}}</dd>
-      </dl>
+      </dl> -->
     </div>
-  -->
 
-    <h3><a (click)="check()"><mat-icon>arrow_back</mat-icon></a>User Setting</h3>
+
+    <h3><a (click)="check()"><mat-icon>arrow_back</mat-icon></a><ng-container i18n>User Setting</ng-container></h3>
 
     <form name="settingGame" [formGroup]="u">
 
         <div id="area_icon">
-            <img id="yourIcon" src="../../assets/svg/{{icons[iconNum]}}.svg">
-            <div (click)="showIconList=!showIconList;">chage icon</div>
+            <img id="yourIcon" src="assets/svg/{{icons[iconNum]}}.svg">
+            <div i18n (click)="showIconList=!showIconList;">chage icon</div>
         </div>
 
         <div *ngIf="showIconList" id="area_iconList">
-            <svg class="icon" (click)="iconNum=j;showIconList=false;yourIcon='/assets/svg/' +this.icons[this.iconNum]+'.svg'" *ngFor="let i of icons;let j = index;"[class.active]="j==iconNum" >
-              <use attr.xlink:href="{{'/assets/svg/animals.svg#'+i}}"/>
+            <svg class="icon" (click)="iconNum=j;showIconList=false;yourIcon='assets/svg/' +this.icons[this.iconNum]+'.svg'" *ngFor="let i of icons;let j = index;"[class.active]="j==iconNum" >
+              <use attr.xlink:href="{{'assets/svg/animals.svg#'+i}}"/>
             </svg>
         </div>
 
-        <div class="form-group">
-
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Your Name" formControlName="name">
+        <div class="form-group" >
+          <label i18n>Your Name</label>
+          <mat-form-field class="example-full-width" style="margin-top: -20px;">
+            <input matInput formControlName="name">
             <mat-error *ngIf="u.controls['name'].hasError('required')">
-              Your Name is <strong>required</strong>
+              <ng-container i18n>Your Name is <strong>required</strong></ng-container>
             </mat-error>
           </mat-form-field>
 
@@ -38,11 +38,11 @@
     </form>
 
     <div *ngIf="!invite" class="btn-ctls">
-        <button mat-raised-button color="primary" [disabled]="u.controls['name'].hasError('required')" (click)="bingoStart()">Bingo Open</button>
+        <button i18n mat-raised-button color="primary" [disabled]="u.controls['name'].hasError('required')" (click)="bingoStart()">Bingo Open</button>
     </div>
 
     <div *ngIf="invite" class="btn-ctls">
-        <button mat-raised-button color="primary" [disabled]="u.controls['name'].hasError('required')" (click)="joinBingo()">Join Game</button>
+        <button i18n mat-raised-button color="primary" [disabled]="u.controls['name'].hasError('required')" (click)="joinBingo()">Join Game</button>
     </div>
 
 </div>

@@ -15,6 +15,7 @@ import { AppComponent } from './app.component';
 import { TestComponent } from './test/test.component';
 import { InitComponent } from './init/init.component';
 import { LoadComponent } from './load/load.component';
+import { OverComponent } from './over/over.component';
 
 
 import { GameService } from "./shared/services/gamemodel.service";
@@ -77,7 +78,6 @@ import {
   MatTooltipModule,
   MatStepperModule,
 } from '@angular/material';
-import { OverComponent } from './over/over.component';
 
 @NgModule({
   declarations: [

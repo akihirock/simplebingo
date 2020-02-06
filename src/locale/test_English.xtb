@@ -15,8 +15,62 @@
 <!ELEMENT ex (#PCDATA)>
 ]>
 <translationbundle lang="en">
-  <translation id="5385691216749341080">hihihi proress</translation>
-  <translation id="8659276288463692653">i want you bachhhhk</translation>
-  <translation id="8827430596790283089">aiuedfdfdo</translation>
-  <translation id="3360039776769158711">kkkkaiueo</translation>
+  <translation id="7194385465148847413">Let&apos;s play</translation>
+  <translation id="6436530106642230579">free online bingo.</translation>
+  <translation id="3837296719597466697">Web Application</translation>
+  <translation id="8176057538050387333">
+            To make a game with simple bingo , let&apos;s invite a friend.
+            Number bingo card is dealt to the invited friend will be delivered.
+            There is no bother need to prepare the bingo machine and card.
+            Enjoy the bingo while chatting with friends.
+          </translation>
+  <translation id="244154619288952163">All Free</translation>
+  <translation id="2244333174162249682">
+            Simple Bingo is a WEB application (WEB site ).<ph name="LINE_BREAK"><ex>&lt;br&gt;</ex>&lt;br&gt;</ph>
+            you can play by  web browser of all of the device , such as smartphone(iPhone,android) , pc(mac,windows) , tablet(iPhone,android tablet).
+          </translation>
+  <translation id="8214696242730967719">Bingo Machine</translation>
+  <translation id="6553775183290999733">
+            Simple Bingo are all free to make the game , to invite friends , to chat with friends.<ph name="LINE_BREAK"><ex>&lt;br&gt;</ex>&lt;br&gt;</ph>
+            Enjoy the game with confidence in various scenes, such as a year-end party, a New Year&apos;s party, a birthday party, a welcome party and a pick-up meeting.
+          </translation>
+  <translation id="2151691056177837213">simple bingo</translation>
+  <translation id="7130182138525932037">New Game</translation>
+  <translation id="4618184748234486380">Title is <ph name="START_TAG_STRONG"><ex>&lt;strong&gt;</ex>&lt;strong&gt;</ph>required<ph name="CLOSE_TAG_STRONG"><ex>&lt;/strong&gt;</ex>&lt;/strong&gt;</ph></translation>
+  <translation id="3964190522311744645">Card Size</translation>
+  <translation id="5424785867385371361">Max Number</translation>
+  <translation id="2154216727411550160">message</translation>
+  <translation id="3885497195825665706">Next</translation>
+
+  <translation id="2297688463310993102">Your Name</translation>
+  <translation id="8710384677351768024">User Setting</translation>
+  <translation id="2547782377886947985">chage icon</translation>
+  <translation id="8277689880660472739">Your Name is <ph name="START_TAG_STRONG"><ex>&lt;strong&gt;</ex>&lt;strong&gt;</ph>required<ph name="CLOSE_TAG_STRONG"><ex>&lt;/strong&gt;</ex>&lt;/strong&gt;</ph></translation>
+  <translation id="395912765825898469">Bingo Open</translation>
+  <translation id="3564569127260493737">Join Game</translation>
+
+  <translation id="4058454064197244323">Sound On</translation>
+  <translation id="2041052425402630259">Sound Off</translation>
+
+  <translation id="2347724151568473592">language</translation>
+  <translation id="8545166930291821342">delete game</translation>
+  <translation id="5326870664533550919">sign out</translation>
+  <translation id="4976935068632868195">home</translation>
+  <translation id="3870202642827799566">
+              Roulette
+            </translation>
+  <translation id="5282002354473317548">
+              Card
+            </translation>
+  <translation id="2441730191018504834">Numbers</translation>
+  <translation id="6452372740127749380">Messages</translation>
+  <translation id="7373619377359302437">Players</translation>
+  <translation id="446249755436689187">POST</translation>
+  <translation id="7022070615528435141">Delete</translation>
+  <translation id="7819314041543176992">Close</translation>
+  <translation id="3353779417951108061">Eject</translation>
+  <translation id="5565485464026702492">&apos;Roulette&apos;</translation>
+  <translation id="5691966639616932851">Card</translation>
+
+
 </translationbundle>

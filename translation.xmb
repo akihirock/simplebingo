@@ -21,4 +21,58 @@
 <!ELEMENT ex (#PCDATA)>
 ]>
 <messagebundle>
+  <msg id="7194385465148847413"><source>src/app/init/init.component.html:8</source>Let&apos;s play</msg>
+  <msg id="6436530106642230579"><source>src/app/init/init.component.html:8</source>free online bingo.</msg>
+  <msg id="3837296719597466697"><source>src/app/init/init.component.html:26</source>Web Application</msg>
+  <msg id="8176057538050387333"><source>src/app/init/init.component.html:27,32</source>
+            To make a game with simple bingo , let&apos;s invite a friend.
+            Number bingo card is dealt to the invited friend will be delivered.
+            There is no bother need to prepare the bingo machine and card.
+            Enjoy the bingo while chatting with friends.
+          </msg>
+  <msg id="244154619288952163"><source>src/app/init/init.component.html:35</source>All Free</msg>
+  <msg id="2244333174162249682"><source>src/app/init/init.component.html:36,39</source>
+            Simple Bingo is a WEB application (WEB site ).<ph name="LINE_BREAK"><ex>&lt;br&gt;</ex>&lt;br&gt;</ph>
+            you can play by  web browser of all of the device , such as smartphone(iPhone,android) , pc(mac,windows) , tablet(iPhone,android tablet).
+          </msg>
+  <msg id="8214696242730967719"><source>src/app/init/init.component.html:42</source>Bingo Machine</msg>
+  <msg id="6553775183290999733"><source>src/app/init/init.component.html:43,46</source>
+            Simple Bingo are all free to make the game , to invite friends , to chat with friends.<ph name="LINE_BREAK"><ex>&lt;br&gt;</ex>&lt;br&gt;</ph>
+            Enjoy the game with confidence in various scenes, such as a year-end party, a New Year&apos;s party, a birthday party, a welcome party and a pick-up meeting.
+          </msg>
+  <msg id="4058454064197244323"><source>src/app/game/game.component.html:11</source>Sound On</msg>
+  <msg id="2041052425402630259"><source>src/app/game/game.component.html:12</source>Sound Off</msg>
+  <msg id="8545166930291821342"><source>src/app/game/game.component.html:15</source>delete game</msg>
+  <msg id="5326870664533550919"><source>src/app/game/game.component.html:16</source>sign out</msg>
+  <msg id="4976935068632868195"><source>src/app/game/game.component.html:17</source>home</msg>
+  <msg id="3870202642827799566"><source>src/app/game/game.component.html:38,40</source>
+              Roulette
+            </msg>
+  <msg id="5282002354473317548"><source>src/app/game/game.component.html:43,45</source><source>src/app/game/game.component.html:59,61</source>
+              Card
+            </msg>
+  <msg id="2441730191018504834"><source>src/app/game/game.component.html:49</source><source>src/app/game/game.component.html:65</source><source>src/app/game/game.component.html:186</source>Numbers</msg>
+  <msg id="6452372740127749380"><source>src/app/game/game.component.html:75</source><source>src/app/game/game.component.html:191</source>Messages</msg>
+  <msg id="7373619377359302437"><source>src/app/game/game.component.html:81</source><source>src/app/game/game.component.html:196</source>Players</msg>
+  <msg id="446249755436689187"><source>src/app/game/game.component.html:122</source>POST</msg>
+  <msg id="7022070615528435141"><source>src/app/game/game.component.html:125</source>Delete</msg>
+  <msg id="7819314041543176992"><source>src/app/game/game.component.html:126</source><source>src/app/game/game.component.html:166</source>Close</msg>
+  <msg id="3353779417951108061"><source>src/app/game/game.component.html:165</source>Eject</msg>
+  <msg id="5565485464026702492"><source>src/app/game/game.component.html:178</source>&apos;Roulette&apos;</msg>
+  <msg id="5691966639616932851"><source>src/app/game/game.component.html:182</source>Card</msg>
+  <msg id="2151691056177837213"><source>src/app/toolbar/toolbar.component.html:18</source>simple bingo</msg>
+  <msg id="2347724151568473592"><source>src/app/toolbar/toolbar.component.html:21</source>language</msg>
+  <msg id="8710384677351768024"><source>src/app/userform/userform.component.html:12</source>User Setting</msg>
+  <msg id="2547782377886947985"><source>src/app/userform/userform.component.html:18</source>chage icon</msg>
+  <msg id="2297688463310993102"><source>src/app/userform/userform.component.html:28</source>Your Name</msg>
+  <msg id="8277689880660472739"><source>src/app/userform/userform.component.html:32</source>Your Name is <ph name="START_TAG_STRONG"><ex>&lt;strong&gt;</ex>&lt;strong&gt;</ph>required<ph name="CLOSE_TAG_STRONG"><ex>&lt;/strong&gt;</ex>&lt;/strong&gt;</ph></msg>
+  <msg id="395912765825898469"><source>src/app/userform/userform.component.html:41</source>Bingo Open</msg>
+  <msg id="3564569127260493737"><source>src/app/userform/userform.component.html:45</source>Join Game</msg>
+  <msg id="7130182138525932037"><source>src/app/gameform/gameform.component.html:4</source>New Game</msg>
+  <msg id="5701618810648052610"><source>src/app/gameform/gameform.component.html:9</source>Title</msg>
+  <msg id="4618184748234486380"><source>src/app/gameform/gameform.component.html:12</source>Title is <ph name="START_TAG_STRONG"><ex>&lt;strong&gt;</ex>&lt;strong&gt;</ph>required<ph name="CLOSE_TAG_STRONG"><ex>&lt;/strong&gt;</ex>&lt;/strong&gt;</ph></msg>
+  <msg id="3964190522311744645"><source>src/app/gameform/gameform.component.html:17</source>Card Size</msg>
+  <msg id="5424785867385371361"><source>src/app/gameform/gameform.component.html:27</source>Max Number</msg>
+  <msg id="2154216727411550160"><source>src/app/gameform/gameform.component.html:52</source>message</msg>
+  <msg id="3885497195825665706"><source>src/app/gameform/gameform.component.html:60</source>Next</msg>
 </messagebundle>

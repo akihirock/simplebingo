@@ -1,19 +1,20 @@
 
 <div id="gameForm">
 
-    <h3><a routerLink="../"><mat-icon>arrow_back</mat-icon></a>{{ 'New Game' }}</h3>
+    <h3><a routerLink="../"><mat-icon>arrow_back</mat-icon></a><ng-container i18n>New Game</ng-container></h3>
 
     <form name="settingGame" [formGroup]="f">
 
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="Title" formControlName="title">
+        <mat-form-field class="example-full-width" style="margin: -15px 0 0px;">
+          <label i18n>Title</label>
+          <input matInput formControlName="title">
           <mat-error *ngIf="f.controls['title'].hasError('required')">
-            Title is <strong>required</strong>
+            <ng-container i18n>Title is <strong>required</strong></ng-container>
           </mat-error>
         </mat-form-field>
 
         <div class="form-group">
-          <label>Card Size</label>
+          <label i18n>Card Size</label>
           <mat-radio-group formControlName="cardSize" (change)="changeCardSize($event)">
             <mat-radio-button value="5">5 × 5</mat-radio-button>
             <mat-radio-button value="3">3 × 3</mat-radio-button>
@@ -23,7 +24,7 @@
         <div class="form-group">
           <table id="maxnumber">
             <tr>
-              <td colspan=2><label>Max Number</label></td>
+              <td colspan=2><label i18n>Max Number</label></td>
             </tr>
             <tr>
               <td>
@@ -47,15 +48,16 @@
           </table>
         </div>
 
-        <mat-form-field class="example-full-width">
-          <textarea matInput formControlName="message" placeholder="message"></textarea>
+        <mat-form-field class="example-full-width" style="margin-top: -20px;">
+          <label i18n>message</label>
+          <textarea matInput formControlName="message"></textarea>
         </mat-form-field>
 
     </form>
 
     <div class="btn-ctls">
         <!-- <button [disabled]="!titleM.valid"   md-raised-button color="primary" >{{ 'Your Name' | translate }}</button> -->
-        <button mat-raised-button color="primary" [disabled]="f.controls['title'].hasError('required')" (click)="check()">Your Name</button>
+        <button i18n mat-raised-button color="primary" [disabled]="f.controls['title'].hasError('required')" (click)="check()">Next</button>
     </div>
 
 </div>

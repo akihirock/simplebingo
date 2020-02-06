@@ -17,7 +17,7 @@ import { InitComponent } from './init/init.component';
 import { GameformComponent } from './gameform/gameform.component';
 import { UserformComponent } from './userform/userform.component';
 import { GameComponent } from './game/game.component';
-
+import { OverComponent } from './over/over.component';
 import { LoadComponent } from './load/load.component';
 
 const routes: Routes = [
@@ -28,11 +28,12 @@ const routes: Routes = [
   { path: 'user-profile', component: UserProfileComponent, canActivate: [AuthGuard] },
   { path: 'init', component: InitComponent },
   { path: 'load', component: LoadComponent },
+  { path: 'over', component: OverComponent },
   { path: 'test', component: TestComponent , canActivate: [AuthGuard]},
   { path: 'userform',component: UserformComponent},
-  { path: 'gameform',component: GameformComponent},
+  { path: 'gameform',component: GameformComponent, canActivate: [SecureInnerPagesGuard]},
   //{ path: 'game/:id',component: GameComponent, canActivate: [SecureInnerPagesGuard]},
-  { path: 'game/:id',component: GameComponent},
+  { path: 'game/:id',component: GameComponent, canActivate: [SecureInnerPagesGuard]},
 
 ];
 

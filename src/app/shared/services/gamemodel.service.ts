@@ -5,6 +5,7 @@ export class GameService {
     id: string;
     cs: number = 5;
     mn: number = 75;
+    fl: string;
     ic: number;
     la: string;
     nm: string;

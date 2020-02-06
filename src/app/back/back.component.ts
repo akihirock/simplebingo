@@ -15,6 +15,7 @@ export class BackComponent implements OnInit {
   basewidth : number;
   lingheight : number;
   fontsize : number;
+  fontsizeIndex:number;
   tdSize : number = 5;
   tdW : number = 1;
   debug ;
@@ -74,6 +75,7 @@ export class BackComponent implements OnInit {
     this.basewidth = this.tdSize * this.tdW + 1;
     this.lingheight =  this.cardwidth*9/10;
     this.fontsize = this.cardwidth*0.45;
+    this.fontsizeIndex = this.cardwidth/4;
   }
 
   onResize(event) {

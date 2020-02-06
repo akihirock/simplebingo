@@ -3,7 +3,7 @@
     <li (click)="deleteNum(n)" [class.hit]="isHit(n)" [ngStyle]="{'width':cardwidth + 'px','height':cardwidth + 'px','line-height':cardwidth + 'px'}"
      *ngFor="let n of nums;">
       <span>{{n}}</span>
-      <span class="index">{{index(n)}}</span>
+      <span class="index" [ngStyle]="{'font-size' : fontsizeIndex  + 'px'}" >{{index(n)}}</span>
     </li>
   </ul>
 

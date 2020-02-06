@@ -15,10 +15,10 @@
 
 <mat-toolbar>
  <mat-toolbar-row>
-    <span>simple bingo</span>
+    <span i18n>simple bingo</span>
     <span class="example-fill-remaining-space"></span>
     <ul [hidden]="!navList">
-      <li><a (click)="openLanguageDialog()"><i class="material-icons">&#xE894;</i>language</a></li>
+      <li><a (click)="openLanguageDialog()"><i class="material-icons">&#xE894;</i><ng-container i18n>language</ng-container></a></li>
     </ul>
     <mat-icon (click)="navList = !navList" class="example-icon">menu</mat-icon>
  </mat-toolbar-row>

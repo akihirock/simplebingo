@@ -15,8 +15,63 @@
 <!ELEMENT ex (#PCDATA)>
 ]>
 <translationbundle lang="ja">
-  <translation id="5385691216749341080">国際プロレスです</translation>
-  <translation id="8659276288463692653">私は国際的なサイトを作りたい</translation>
-  <translation id="8827430596790283089">あいうえおi</translation>
-  <translation id="3360039776769158711">かきくけこ</translation>
+  <translation id="7194385465148847413">ビンゴゲームを</translation>
+  <translation id="6436530106642230579">みんなで楽しみましょう。</translation>
+  <translation id="3837296719597466697">簡単にビンゴゲーム</translation>
+  <translation id="8176057538050387333">
+    シンプルビンゴでゲームを作り、友達を招待しましょう。
+    招待された友達にはビンゴカードが配られ数字が配信されます。
+    わざわざビンゴルーレットやカードを準備する必要はありません。
+    友達とチャットをしながらビンゴを楽しめます。
+          </translation>
+  <translation id="244154619288952163">全ての端末で</translation>
+  <translation id="2244333174162249682">
+    シンプルビンゴはウェブアプリケーション（ウェブサイト）です。<ph name="LINE_BREAK"><ex>&lt;br&gt;</ex>&lt;br&gt;</ph>
+    スマートフォン(iPhone,android)、パソコン(windows,mac)、タブレット(ipad,android tablet)など全ての端末のウェブブラウザで利用できます。
+          </translation>
+  <translation id="8214696242730967719">完全に無料</translation>
+  <translation id="6553775183290999733">
+    シンプルビンゴは、ゲームを作るのも、友達を招待するのも、チャットをするのも全て無料です。
+    サイト内の課金もないので安心して、歓送迎会、忘年会、結婚式、誕生日会などでゲームを楽しんで下さい。
+    プロジェクターに投影してみんなでナンバーを見ることもできます。
+            </translation>
+  <translation id="2151691056177837213">simple bingo</translation>
+  <translation id="7130182138525932037">新しいゲーム</translation>
+  <translation id="4618184748234486380"><ph name="START_TAG_STRONG"><ex>&lt;strong&gt;</ex>&lt;strong&gt;</ph>入力してください<ph name="CLOSE_TAG_STRONG"><ex>&lt;/strong&gt;</ex>&lt;/strong&gt;</ph></translation>
+  <translation id="3964190522311744645">カードサイズ</translation>
+  <translation id="5424785867385371361">最大値</translation>
+  <translation id="2154216727411550160">メッセージ</translation>
+  <translation id="3885497195825665706">次へ</translation>
+
+  <translation id="2297688463310993102">ニックネーム</translation>
+  <translation id="8710384677351768024">ユーザー情報</translation>
+  <translation id="2547782377886947985">アイコンを変える</translation>
+  <translation id="8277689880660472739"><ph name="START_TAG_STRONG"><ex>&lt;strong&gt;</ex>&lt;strong&gt;</ph>入力してください<ph name="CLOSE_TAG_STRONG"><ex>&lt;/strong&gt;</ex>&lt;/strong&gt;</ph></translation>
+  <translation id="395912765825898469">次へ</translation>
+  <translation id="3564569127260493737">次へ</translation>
+
+  <translation id="4058454064197244323">サウンド</translation>
+  <translation id="2041052425402630259">サウンド</translation>
+
+  <translation id="2347724151568473592">language</translation>
+  <translation id="8545166930291821342">ゲーム削除</translation>
+  <translation id="5326870664533550919">サインアウト</translation>
+  <translation id="4976935068632868195">トップへ戻る</translation>
+  <translation id="3870202642827799566">
+              ルーレット
+            </translation>
+  <translation id="5282002354473317548">
+              カード
+            </translation>
+  <translation id="2441730191018504834">バックナンバー</translation>
+  <translation id="6452372740127749380">メッセージ</translation>
+  <translation id="7373619377359302437">参加者</translation>
+  <translation id="446249755436689187">投稿</translation>
+  <translation id="7022070615528435141">削除</translation>
+  <translation id="7819314041543176992">閉じる</translation>
+  <translation id="3353779417951108061">退出</translation>
+  <translation id="5565485464026702492">&apos;ルーレット&apos;</translation>
+  <translation id="5691966639616932851">カード</translation>
+
+
 </translationbundle>

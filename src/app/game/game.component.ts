@@ -41,7 +41,7 @@ export class GameComponent implements OnInit, OnDestroy {
   page:string = "bingocard";
   pageSP:string = "bingocard";
 
-  gameM : { tt: string} = {} as { tt: string};
+  gameM : any =  {};//{ tt: string} = {} as { tt: string};
   lineUrl:SafeResourceUrl;
 
   backFire : any;//AngularFireObject<any>;
@@ -125,12 +125,7 @@ export class GameComponent implements OnInit, OnDestroy {
       gameRef.valueChanges().pipe(take(1),)
         .subscribe(g => {
 
-
-        // var g = action.payload.val();
-        // if(g==null){
-        //   this.router.navigate(['/over']);
-        //   return false;
-        // }
+        //console.log(g);
 
         this.gameM["cs"] = g["cs"];
         this.gameM["gc"] = g["gc"];
@@ -142,41 +137,10 @@ export class GameComponent implements OnInit, OnDestroy {
 
         this.lineUrl = sanitizer.bypassSecurityTrustResourceUrl("line://msg/text/" + this.gameM["tt"] + " https://goo.gl/" + this.gameM["gc"]);
 
-        // check ban
-        if( g["ban"] != undefined ){
-          for(var b in g["ban"]){
-             if(b==this.uid){
-               this.router.navigate(['/over']);
-               return false;
-             }
-          }
-        }
 
 
-        //check invitation <
-        var flg = false;
-        for(var u in g['us']){
-          if(u == this.uid){
-            flg = true;
-          }
-        }
-        if(!flg){
-          this.gm = gameService.getGame();
-          this.gm.id = this.gameId;
-          this.gm.tt = g['tt'];
-          this.gm.tx = g['tx'];
-          this.gm.cs = g['cs'];
-          this.gm.mn = g['mn'];
-          this.gm.nm = g['nm'];
-          this.gm.ic = g['ic'];
-          this.gm.fl = "invite"
-          this.router.navigate(['/']);
-          return false;
-        }else{
-          var body = document.getElementsByTagName("body")[0];
-          body.className = "game";
-        }
-        //check invitation >
+        // var body = document.getElementsByTagName("body")[0];
+        // body.className = "game";
 
 
         //check owner <
@@ -191,51 +155,17 @@ export class GameComponent implements OnInit, OnDestroy {
 
         this.url = location.href;
 
-
-        //google short cut <
-        // if(g["gc"] == undefined || g["gc"]==""){
-        //   var googleFire = db.object('games/' + this.gameId + "/gc");
-        //   let node = document.createElement('script');
-        //   node.src = "https://apis.google.com/js/client.js?onload=load";
-        //   node.type = 'text/javascript';
-        //   document.getElementsByTagName('head')[0].appendChild(node);
-        //   var gm = this.gameM;
-        //
-        //   this.loadAPI = new Promise((resolve) => {
-        //     window['load'] = (ev) => {
-        //       var path = location.href.indexOf("game");
-        //       var pathStr = location.href.substring(0,path) + "game/";
-        //       var LONG_URL = pathStr + this.gameId;
-        //       gapi.client.setApiKey("AIzaSyAQLg9XP4NgwLV2UVw5D3VNduTdxrvT5Hs");
-        //       gapi.client.load("urlshortener", "v1",　function(){
-        //         var request = gapi.client.urlshortener.url.insert({
-        //           resource: {'longUrl': LONG_URL}
-        //         });
-        //         request.execute(function(response){
-        //           var gc = (response.id).replace("https://goo.gl/","");
-        //           googleFire.set(gc);
-        //           gm["gc"] = gc;
-        //         });
-        //       });
-        //     }
-        //   });
-        //
-        // }
-        //google short cut >
-
-
         // fire backnumber    this.backM
         this.backFire = db.object('games/' + this.gameId + "/nu");
         this.backFire.snapshotChanges().subscribe(action => {
           this.backM = action.payload.val();
         });
 
-
         //fire ban  this.banM <
         var banFire = db.object('games/' + this.gameId + "/ban");
         banFire.snapshotChanges().subscribe(action => {
           this.banM = [];
-          var ban = action.payload.val();
+          var ban : any = action.payload.val();
           //console.log(ban);
           if(ban){
             for(var key in ban){
@@ -243,114 +173,35 @@ export class GameComponent implements OnInit, OnDestroy {
               this.banM.push(b);
             }
           }
-
         });
-
-        // var banFire = db.list('games/' + this.gameId + "/ban");
-        // banFire.valueChanges().subscribe(v => {
-        //   this.banM = [];
-        //   var ban = v[0];
-        //   console.log(ban);
-        //   for(var key in ban){
-        //     var b = ban[key];
-        //     this.banM.push(b);
-        //   }
-        // });
-
-
         // fire ban  this.banM >
 
 
         // fire msgs <
         var msgsFire = db.list('msgs/' + this.gameId);
-
         msgsFire.valueChanges().subscribe(v => {
           this.msgsM = [];
-          var msg:any = v[0];
-
-          for(var key in msg){
-            if( msg[key]["tx"] != "" ){
-              msg[key]["$key"] = key;
-              this.msgsM.push(msg[key]);
+          for(let i=0,iMax=v.length;i<iMax;i++){
+            var msg:any = v[i];
+            for(var key in msg){
+              if( msg[key]["tx"] != "" ){
+                msg[key]["$key"] = key;
+                this.msgsM.push(msg[key]);
+              }
             }
           }
-
-          // var msg = snapshot.val();
-          // for(var key in msg){
-          //   if( msg[key]["tx"] != "" ){
-          //     msg[key]["$key"] = key;
-          //     this.msgsM.push(msg[key]);
-          //   }
-          // }
-
           this.msgsM = object_array_sort(this.msgsM,'tm');
-
         });
-
-        // msgsFire.snapshotChanges(['child_changed'])
-        //   .subscribe(actions => {
-        //     this.msgsM = [];
-        //     actions.forEach(action => {
-        //       // var msg = action.payload.val();
-        //       // for(var key in msg){
-        //       //   if( msg[key]["tx"] != "" ){
-        //       //     msg[key]["$key"] = key;
-        //       //     this.msgsM.push(msg[key]);
-        //       //   }
-        //       // }
-        //
-        //       // if( key != null && msg["tx"] != "" ){
-        //       //   console.log(msg);
-        //       //   console.log(key);
-        //       //   // msg[key]["key"] = key;
-        //       //   // this.msgsM.push(msg[key]);
-        //       // }
-        //     });
-        //   });
         // fire msgs >
-
-
-        // fire sound    this.soundM
-        this.soundFire = db.object('games/' + this.gameId + "/sd");
-        this.soundFire.snapshotChanges().subscribe(action => {
-          this.soundM = action.payload.val();
-          console.log(this.soundM);
-          console.log(this.onaudioSound);
-          if(this.soundM  == null){
-            this.router.navigate(['/']);
-          }
-          if(this.soundM == 'start'){
-            clearInterval(this.rndTime);
-            this.onSound();
-          }else if(this.soundM == 'decide'){
-            this.offSound();
-            this.onCrush();
-            if(this.owner){
-              this.soundFire.set('decided');
-            }
-            this.rnd = this.backM.slice(-1)[0];
-            this.rndTime = setTimeout(() => {
-               this.rnd = 0;
-            }, 5000);
-          }else if(this.soundM == 'cancel'){
-            this.offSound();
-            this.rnd = 0;
-          }
-          if( this.backM != null && this.backM.length > this.gameM["mn"]){
-            this.isOver = true;
-          }else{
-            this.isOver = false;
-          }
-        });
-        // fire sound >
 
 
         // fire players    this.playersM
         var playersFire = db.list("games/" + this.gameId + "/us");
-        playersFire.snapshotChanges(['child_changed'])
-          .subscribe(actions => {
+        playersFire.snapshotChanges().subscribe(actions => {
+           console.log("playersFire");
            this.playersM = {};
            actions.forEach(action => {
+             console.log(action);
              var pkey = action.key;
              var playerOwner = action.payload.val();
              this.playersM[pkey] = playerOwner;
@@ -392,6 +243,41 @@ export class GameComponent implements OnInit, OnDestroy {
         // fire your msgs >
 
 
+        // fire sound    this.soundM
+        this.soundFire = db.object('games/' + this.gameId + "/sd");
+        this.soundFire.snapshotChanges().subscribe(action => {
+          this.soundM = action.payload.val();
+          console.log(this.soundM);
+          console.log(this.onaudioSound);
+          if(this.soundM  == null){
+            this.router.navigate(['/']);
+          }
+          if(this.soundM == 'start'){
+            clearInterval(this.rndTime);
+            this.onSound();
+          }else if(this.soundM == 'decide'){
+            this.offSound();
+            this.onCrush();
+            if(this.owner){
+              this.soundFire.set('decided');
+            }
+            this.rnd = this.backM.slice(-1)[0];
+            this.rndTime = setTimeout(() => {
+               this.rnd = 0;
+            }, 5000);
+          }else if(this.soundM == 'cancel'){
+            this.offSound();
+            this.rnd = 0;
+          }
+          if( this.backM != null && this.backM.length > this.gameM["mn"]){
+            this.isOver = true;
+          }else{
+            this.isOver = false;
+          }
+        });
+        // fire sound >
+
+
       });
       // gameRef >
 
@@ -405,7 +291,7 @@ export class GameComponent implements OnInit, OnDestroy {
     winRef.nativeWindow.AudioContext = winRef.nativeWindow.AudioContext || winRef.nativeWindow.webkitAudioContext;
 
     this.audioContext = new AudioContext();
-    this.fetchSample("/assets/sound/drumroll.mp3",this.audioContext)
+    this.fetchSample("assets/sound/drumroll.mp3",this.audioContext)
     .then((audioBuffer) => {
         this.audioBuffer = audioBuffer;
     })
@@ -414,7 +300,7 @@ export class GameComponent implements OnInit, OnDestroy {
     });
 
     this.audioContextCrush = new AudioContext();
-    this.fetchSample("/assets/sound/crush.mp3",this.audioContextCrush)
+    this.fetchSample("assets/sound/crush.mp3",this.audioContextCrush)
     .then((audioBuffer) => {
         this.audioBufferCrush = audioBuffer;
     })
@@ -671,6 +557,7 @@ export class GameComponent implements OnInit, OnDestroy {
         tx : m,
         ur : this.uid
       }
+      console.log("new Me");
       this.yourMsgsFire.push(obj);
       this.msgopen = false;
       document.getElementsByTagName("mat-sidenav")[0].scrollTop=0
@@ -803,9 +690,18 @@ export class GameComponent implements OnInit, OnDestroy {
     }
     this.inviteopen = this.inviteopenPre;
     this.inviteopenPre = false;
-
   }
 
+  preIndex:number = 0;
+  @ViewChild('tabGroup', {static: false}) tabGroup;
+
+  clickTab2(){
+    console.log(this.tabGroup.selectedIndex);
+    if(this.preIndex == this.tabGroup.selectedIndex){
+      this.opened = !this.opened;
+    }
+    this.preIndex = this.tabGroup.selectedIndex;
+  }
 
   keys(playersM) : number {
     //this.playersM
